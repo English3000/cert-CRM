@@ -21,9 +21,9 @@
 
 ## Assumptions
 
-**A.** _This is the administrator-side of the software, not the customer-side._
+_**A.** This is the administrator-side of the software, not the customer-side._
 
-**B.** _Admin accounts are created by a webmaster. Thus, admin account_ creation _is out of scope; only admin sign-in functionality is included._
+_**B.** Admin accounts are created by a webmaster. Thus, admin account_ creation _is out of scope; only admin sign-in functionality is included._
 
 ## Wireframes
 
