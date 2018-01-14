@@ -13,17 +13,17 @@
 
 ## Provided Features
 
-1. Admin Sign In & Out
-2. Customer Search
-3. Customer CRUD
-4. Certificate CRU
-   \+ Certificate "full-view" modals
-5. Production deployment
+**1.** Admin Sign In & Out
+**2.** Customer Search
+**3.** Customer CRUD
+**4.** Certificate CRU \+ "full-view" modals
+**5.** Production deployment
 
 ## Assumptions
 
-  A. This is the administrator-side of the software, not the customer-side.
-  B. Admin accounts are created by a webmaster. Thus, admin account _creation_ is out of scope; only admin sign-in functionality is included.
+**A.** This is the administrator-side of the software, not the customer-side.
+
+**B.** Admin accounts are created by a webmaster. Thus, admin account _creation_ is out of scope; only admin sign-in functionality is included.
 
 ## Wireframes
 
@@ -43,7 +43,7 @@ At bottom so out of sight from site visitors.
     errors: []
   },
   data: { //extra layer so can fetch customers & certificates in only 1 query
-    customers: { //for faster loading upon sign in, grab X most recently created customers; then cache the rest
+    customers: { //for faster loading upon sign in, grab X most recently created customers; then cache the rest when searched
       by_id: {
         1: {
           id: 1, //needed for RESTful deletions
@@ -71,9 +71,9 @@ At bottom so out of sight from site visitors.
 
 ## Order of Implementation
 
-1. backend
-2. backend tests
-3. frontend
-4. frontend tests
-5. production deployment
-6. production run-through & troubleshooting
+**1.** backend
+**2.** backend tests
+**3.** frontend
+**4.** frontend tests
+**5.** production deployment
+**6.** production run-through & troubleshooting
