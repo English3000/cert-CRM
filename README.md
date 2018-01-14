@@ -3,6 +3,8 @@
 ### CURRENTLY IN DEVELOPMENT
 (live demo will be provided here upon deployment)
 
+STACK: React, Rails, Postgres
+
 ## Updates
 
 * Private keys will not appear on the frontend (or in the state); rather, a button will be provided to email a customer their key--_why expose them unnecessarily?_ If an admin needed a customer to verify their certificate, a form could be provided which checks the database to see if the entered private key matches for that certificate.
