@@ -3,7 +3,7 @@
 ### CURRENTLY IN DEVELOPMENT
 (live demo will be provided here upon deployment)
 
-STACK: React, Rails, Postgres
+**STACK:** React, Rails, Postgres
 
 ## Updates
 
