@@ -13,17 +13,17 @@
 
 ## Provided Features
 
-**1.** Admin Sign In & Out
-**2.** Customer Search
-**3.** Customer CRUD
-**4.** Certificate CRU \+ "full-view" modals
-**5.** Production deployment
+1. Admin Sign In & Out
+2. _Customer Search_
+3. Customer CRUD
+4. _Certificate CRU \+ "full-view" modals_
+5. Production deployment
 
 ## Assumptions
 
-**A.** This is the administrator-side of the software, not the customer-side.
+A. _This is the administrator-side of the software, not the customer-side._
 
-**B.** Admin accounts are created by a webmaster. Thus, admin account _creation_ is out of scope; only admin sign-in functionality is included.
+B. _Admin accounts are created by a webmaster. Thus, admin account_ creation _is out of scope; only admin sign-in functionality is included._
 
 ## Wireframes
 
@@ -71,9 +71,9 @@ At bottom so out of sight from site visitors.
 
 ## Order of Implementation
 
-**1.** backend
-**2.** backend tests
-**3.** frontend
-**4.** frontend tests
-**5.** production deployment
-**6.** production run-through & troubleshooting
+1. backend
+2. _backend tests_
+3. frontend
+4. _frontend tests_
+5. production deployment
+6. _production run-through & troubleshooting_
