@@ -1,7 +1,7 @@
 # Cert-CRM: _a generic CRM for managing customer's certificates_
 
 ### CURRENTLY IN DEVELOPMENT
-(live demo will be provided here upon deployment)
+_(live demo will be provided here upon deployment)_
 
 **STACK:** React, Rails, Postgres
 
