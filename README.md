@@ -41,7 +41,7 @@ At bottom so out of sight from site visitors.
 ```js
 {
   session: {
-    currentUser: #{name}, //all that's needed for MVP
+    currentUser: `${name}`, //all that's needed for MVP
     errors: []
   },
   data: { //extra layer so can fetch customers & certificates in only 1 query
