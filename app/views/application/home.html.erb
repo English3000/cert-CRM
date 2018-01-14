@@ -1,0 +1,16 @@
+<% if signed_in? %>
+  <script>
+    window.currentUser = <%= render(
+      "api/admins/admin.json.jbuilder",
+      admin: current_user
+    ).html_safe %>
+    // api/users/user.json.jbuilder --to handle customer sign-ins too
+  </script>
+<% end %>
+
+<div id='homepage'>
+  Check Chrome console (alt + cmd + j)...
+  Check Webpack tab.
+  Check Rails Server tab.
+  Check Postgres
+</div>
