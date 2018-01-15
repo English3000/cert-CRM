@@ -3,7 +3,7 @@ class User < ApplicationRecord
   validates :name, :password_digest, :admin?, presence: true
   validates :password, length: {minimum: 8, allow_nil: true}
 
-  has_many :certificates
+  has_many :certificates, dependent: :destroy
 
   after_initialize :ensure_token
   def ensure_token

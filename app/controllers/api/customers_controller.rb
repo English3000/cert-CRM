@@ -6,19 +6,22 @@ class Api::CustomersController < ApplicationController
   def destroy
     @customer = User.find(params[:id])
     @customer.destroy
-    render :user
+    render :show
   end
 
   def create
     @customer = User.new(customer_params)
-    @customer.save ? (render :user) :
+    @customer.save ? (render :show) :
       (render json: @customer.errors.full_messages, status: 422)
   end
 
   def update
     @customer = User.find(params[:id])
-    @customer && @customer.update_attributes(customer_params) ? (render :user) :
-      (render json: @customer.errors.full_messages, status: 422)
+    if @customer && @customer.update_attributes(customer_params)
+      render :show
+    else
+      render json: @customer.errors.full_messages, status: 422
+    end
   end
 
   private

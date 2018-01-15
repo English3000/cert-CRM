@@ -10,8 +10,8 @@ class Api::SessionsController < ApplicationController
     @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
     if @user
       sign_in(@user)
-      render :user # would return more for Customer sign-in;
-      # conditional logic in json view
+      render json: {name: @user.name}
+      # render :current_user, user: @user #to handle Customer sign-ins too
     else
       render json: ['Invalid user credentials'], status: 422
     end
