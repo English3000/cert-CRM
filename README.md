@@ -7,6 +7,8 @@ _(live demo will be provided here upon deployment)_
 
 ## Updates
 
+* Updated [Order of Implementation](https://github.com/English3000/cert-CRM#order-of-implementation) (allows for faster workflow)
+
 * Private keys will not appear on the frontend (or in the state); rather, a button will be provided to email a customer their key--_why expose them unnecessarily?_ If an admin needed a customer to verify their certificate, a form could be provided which checks the database to see if the entered private key matches for that certificate.
 
   Both of these features are beyond the scope of this MVP. (Non-functioning frontend components are provided, however, for UI purposes.)
@@ -100,9 +102,7 @@ attribute         | datatype | settings
 
 ## Order of Implementation
 
-1. backend
-2. backend tests
-3. frontend
-4. frontend tests
-5. production deployment
-6. production run-through & troubleshooting
+1. backend **(COMPLETE)**
+2. frontend
+3. production deployment & troubleshooting
+4. tests _(at this stage, there's a working product--the tests ensure another developer doesn't accidentally break existing functionality)_

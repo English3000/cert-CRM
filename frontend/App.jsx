@@ -2,13 +2,13 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { ProtectedRoute, AuthRoute } from './utils/routing';
-import HomePage from './components/HomePage';
+import HomePageContainer from './components/HomePageContainer';
 import CustomersIndexPageContainer from './components/CustomersIndexPageContainer';
 
 export default () => (
   <div>
     <Switch>
-      <AuthRoute exact path='/' component={HomePage}/>
+      <AuthRoute exact path='/' component={HomePageContainer}/>
       <ProtectedRoute exact path='/customers' component={CustomersIndexPageContainer}/>
     </Switch>
   </div>
