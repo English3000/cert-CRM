@@ -7,20 +7,20 @@ _(live demo will be provided here upon deployment)_
 
 ## Updates
 
+* Expandable certificates on click, for enhanced readability. _(Doing modals would be messy because of the component hierarchy.)_
+
 * Updated [Order of Implementation](https://github.com/English3000/cert-CRM#order-of-implementation) (allows for faster workflow)
 
 * Private keys will not appear on the frontend (or in the state); rather, a button will be provided to email a customer their key--_why expose them unnecessarily?_ If an admin needed a customer to verify their certificate, a form could be provided which checks the database to see if the entered private key matches for that certificate.
 
   Both of these features are beyond the scope of this MVP. (Non-functioning frontend components are provided, however, for UI purposes.)
 
-* Clickable certificate bodies--longer bodies will not fit within a certificate's allocated space; for this reason, modal functionality will be provided to more easily view the body in full.
-
 ## Provided Features
 
-1. Admin Sign In & Out
-2. Customer Search
-3. Customer CRUD
-4. Certificate CRU \+ "full-view" modals
+1. Admin sign in & out **(SKELETONED)**
+2. Customer search
+3. Customer creation & deletion
+4. Certificate creation & updating, expandable on click
 5. Production deployment
 
 ## Assumptions
@@ -37,6 +37,15 @@ At bottom so out of sight from site visitors.
 
 ### Admin interface
 ![customersIndexPage](https://github.com/English3000/cert-CRM/blob/master/CustomersIndexPage.png)
+
+## Component Hierarchy
+
+> **Home Page**
+
+> **Customers Index Page**
+  * Customers Index
+    * Customer Detail
+      * Certificate
 
 ## Schema
 

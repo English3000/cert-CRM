@@ -14,13 +14,16 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class CustomersIndex extends React.Component {
+  state = {customers: this.props.customers};
+
   componentWillMount() { this.props.fetchCustomers(); }
 
   render() {
-    const {customers, FetchCertificate, certificates} = this.props;
+    const {customer} = this.state;
+    const {FetchCertificate, certificates} = this.props;
 
     return (<div style={{display: 'flex', justifyContent: 'center'}}>
-      {/* search box */}
+      {/* search box--filters down customers slice */}
       <main style={{maxWidth: 900, backgroundColor: 'goldenrod'}}>
         {customers.all_ids.length > 0 ?
           customers.all_ids.map(
