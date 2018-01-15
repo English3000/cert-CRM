@@ -7,7 +7,7 @@ _(live demo will be provided here upon deployment)_
 
 ## Updates
 
-* Expandable certificates on click, for enhanced readability. _(Doing modals would be messy because of the component hierarchy.)_
+* Expandable certificates on click, for enhanced readability. _(Doing modals would be messy because of the [component hierarchy](https://github.com/English3000/cert-CRM#component-hierarchy).)_
 
 * Updated [Order of Implementation](https://github.com/English3000/cert-CRM#order-of-implementation) (allows for faster workflow)
 
@@ -29,15 +29,6 @@ _**A.** This is the administrator-side of the software, not the customer-side._
 
 _**B.** Admin accounts are created by a webmaster. Thus, admin account_ creation _is out of scope; only admin sign-in functionality is included._
 
-## Wireframes
-
-### Footer of a company's homepage
-At bottom so out of sight from site visitors.
-![homepage](https://github.com/English3000/cert-CRM/blob/master/HomePage.png)
-
-### Admin interface
-![customersIndexPage](https://github.com/English3000/cert-CRM/blob/master/CustomersIndexPage.png)
-
 ## Component Hierarchy
 
 > **Home Page**
@@ -46,6 +37,15 @@ At bottom so out of sight from site visitors.
   * Customers Index
     * Customer Detail
       * Certificate
+
+## Wireframes
+
+### Footer of a company's homepage
+At bottom so out of sight from site visitors.
+![homepage](https://github.com/English3000/cert-CRM/blob/master/HomePage.png)
+
+### Admin interface
+![customersIndexPage](https://github.com/English3000/cert-CRM/blob/master/CustomersIndexPage.png)
 
 ## Schema
 
