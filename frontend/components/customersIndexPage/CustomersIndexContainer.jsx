@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchCustomers, createCustomer } from '../actions/customerActions'; //
-import CustomerDetail from './CustomerDetail'; //continue skeletoning
+import CustomerDetailContainer from './CustomerDetailContainer'; //
 import LoadingIcon from '../../utils/LoadingIcon'; //
 
 const mapStateToProps = ({ data }) => ({
-  customers: data.customers
+  customers: data.customers,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -17,13 +17,16 @@ class CustomersIndex extends React.Component {
   componentWillMount() { this.props.fetchCustomers(); }
 
   render() {
-    const {customers} = this.props;
+    const {customers, FetchCertificate, certificates} = this.props;
 
-    return (<div>
+    return (<div style={{display: 'flex', justifyContent: 'center'}}>
       {/* search box */}
-      <main>
+      <main style={{maxWidth: 900, backgroundColor: 'goldenrod'}}>
         {customers.all_ids.length > 0 ?
-          customers.map( customer => <CustomerDetail/> ) : <LoadingIcon/>}
+          customers.all_ids.map(
+            customerId => <CustomerDetailContainer key={`customer-${customerId}`}
+                                                   customer={customers.by_id[customerId]}/>
+          ) : <LoadingIcon/>}
       </main>
     </div>);
   }

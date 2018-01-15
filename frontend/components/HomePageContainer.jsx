@@ -10,6 +10,7 @@ const mapDispatchToProps = dispatch => ({
   signIn: user => dispatch(signIn(user))
 });
 
+ //POTENTIAL BUGS: inputs
 class HomePage extends React.Component {
   state = {form: false, email: 'admin@cert.crm', password: 'adminDemo'};
 
@@ -24,12 +25,14 @@ class HomePage extends React.Component {
         <span onClick={() => this.setState({form: !form})}>Admin</span>
         {form ? <div>
           <div style={{display: 'flex'}}>
-            <input type='text' placeholder='Email'
-                   defaultValue='admin@cert.crm'/>
+            <input type='text' placeholder='Email' autoFocus
+                   defaultValue={email} style={{marginLeft: 5}}
+                   onChange={event => this.setState({email: event.target.value})}/>
             <input type='password' placeholder='Password'
-                   defaultValue='adminDemo' onChange/>
+                   defaultValue={password} style={{marginLeft: 5}}
+                   onChange={event => this.setState({password: event.target.value})}/>
             <span onClick={() => signIn({email, password})}
-                  style={backgroundColor: 'gray'}>Sign In
+                  style={backgroundColor: 'gray', marginLeft: 5}>Sign In
             </span>
           </div>
           <p style={{color: 'white'}}>{errors ? errors.map(
