@@ -16,5 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.getState = store.getState;
 
-  ReactDOM.render(<Setup store={store}/>, document.getElementById('homepage'));
+  ReactDOM.render(<Setup store={store}/>, document.getElementById('current-page'));
 });

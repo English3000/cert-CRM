@@ -1,0 +1,2 @@
+module Api::CertificatesHelper
+end

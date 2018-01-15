@@ -36,6 +36,33 @@ At bottom so out of sight from site visitors.
 ### Admin interface
 ![customersIndexPage](https://github.com/English3000/cert-CRM/blob/master/CustomersIndexPage.png)
 
+## Schema
+
+### `users`
+
+attribute         | datatype | settings
+-|-|-
+`id`              | integer  | not null, primary key
+`name`            | string   | not null
+`email`           | string   | not null, unique, indexed
+`password_digest` | string   | not null
+`session_token`   | string   | not null, unique, indexed
+`admin?`          | boolean  | not null
+`created_at`      | datetime | not null
+`updated_at`      | datetime | not null
+
+### `certificates`
+
+attribute         | datatype | settings
+-|-|-
+`id`              | integer  | not null, primary key
+`private_key`     | string   | not null, unique, indexed
+`body`            | text     | not null
+`active?`         | boolean  | not null
+`user_id`         | integer  | not null, foreign key, indexed
+`created_at`      | datetime | not null
+`updated_at`      | datetime | not null
+
 ## Sample State
 
 ```js

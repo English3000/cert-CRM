@@ -1,14 +1,13 @@
 <% if signed_in? %>
   <script>
     window.currentUser = <%= render(
-      "api/admins/admin.json.jbuilder",
-      admin: current_user
+      "api/sessions/user.json.jbuilder",
+      user: current_user
     ).html_safe %>
-    // api/users/user.json.jbuilder --to handle customer sign-ins too
   </script>
 <% end %>
 
-<div id='homepage'>
+<div id='current-page'>
   Check Chrome console (alt + cmd + j)...
   Check Webpack tab.
   Check Rails Server tab.

@@ -12,4 +12,5 @@ export default () => (
       <ProtectedRoute exact path='/customers' component={CustomersIndexPageContainer}/>
     </Switch>
   </div>
-);
+); /* for ProtectedRoute, if Customer sign-in (check currentUser.admin?),
+        would add conditional redirecting to CustomerShowPageContainer */
