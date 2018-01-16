@@ -12,7 +12,7 @@ class Certificate extends React.Component {
   render() {
     const {certificate, UpdateCertificate, expanded} = this.props;
     const {update} = this.state;
-    let active = certificate.active?;
+    let active = certificate.active?; //could cause bug?
 
     return (<div>
       { update ? <div onClick={() => this.setState({update: true})}>
@@ -24,7 +24,10 @@ class Certificate extends React.Component {
       <div onClick={() => this.setState({update: true})}>Reactivate</div> }
 
       { expanded ? <p style={{margin: 15}}>{certificate.body}</p> :
-      <p style={{margin: 15, width: 180, height: 180, overflowY: 'scroll'}}>{certificate.body}</p> }
+      <p style={{marginLeft: 15, marginRight: 15, width: 180, height: 180,
+                 overflowY: 'scroll'}}>{certificate.body}</p> }
+
+      <p onClick={() => alert("Functionality not included.")}>Email Private Key</p>
     </div>);
   }
 }

@@ -49,7 +49,7 @@ class CustomersIndex extends React.Component {
         }}>Submit</span>
       </div> : null }
 
-      <main style={{maxWidth: 900, backgroundColor: 'goldenrod'}}>
+      <main style={{maxWidth: 900, marginTop: 45}}>
         {all_ids.length > 0 ?
           all_ids.map(
             customerId => <CustomerDetailContainer key={`customer-${customerId}`}

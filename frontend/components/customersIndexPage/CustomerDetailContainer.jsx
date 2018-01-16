@@ -24,7 +24,7 @@ class CustomerDetail extends React.Component {
     const { privateKey, activated, expandCert,
             certForm, certBody, confirmDelete } = this.state;
 
-    return (<section style={{display: 'flex', margin: 15}}>
+    return (<section style={{display: 'flex', backgroundColor: 'goldenrod', marginBottom: 15}}>
       <aside>
         <i className='fa fa-trash fa-lg'
            style={{color: 'beige', display: 'inline-block', margin: 5}}
