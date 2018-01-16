@@ -45,7 +45,7 @@ class CustomersIndex extends React.Component {
                onChange={event => this.setState({password: event.target.value})}/>
         <span onClick={() => {
           CreateCustomer({name, email, password, 'admin?': false});
-          this.setState({customerForm: false});
+          this.setState({customerForm: false}); //need error handling
         }}>Submit</span>
       </div> : null }
 

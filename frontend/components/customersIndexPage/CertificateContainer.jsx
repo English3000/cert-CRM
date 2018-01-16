@@ -23,8 +23,8 @@ class Certificate extends React.Component {
       <div onClick={() => this.setState({update: true})}>Deactivate</div> :
       <div onClick={() => this.setState({update: true})}>Reactivate</div> }
 
-      { expanded ? <p style={{margin: 15}}>{certificate.body}</p> :
-      <p style={{marginLeft: 15, marginRight: 15, width: 180, height: 180,
+      { expanded ? <p style={{marginLeft: 15, marginRight: 15, backgroundColor: 'yellow'}}>{certificate.body}</p> :
+      <p style={{marginLeft: 15, marginRight: 15, backgroundColor: 'yellow', width: 180, height: 180,
                  overflowY: 'scroll'}}>{certificate.body}</p> }
 
       <p onClick={() => alert("Functionality not included.")}>Email Private Key</p>

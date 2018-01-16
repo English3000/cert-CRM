@@ -111,6 +111,7 @@ attribute         | datatype | settings
 
 ## Order of Implementation
 
+0. documentation **(COMPLETE)**
 1. backend **(COMPLETE)**
 2. frontend  **(SKELETONED - REDUX CYCLES)**
 3. production deployment & troubleshooting

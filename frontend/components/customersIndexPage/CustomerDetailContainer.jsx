@@ -56,7 +56,7 @@ class CustomerDetail extends React.Component {
             </textarea>
             <span onClick={() => {
               CreateCertificate({body: certBody, user_id: customer.id});
-              this.setState({certForm: false});
+              this.setState({certForm: false}); //need error handling
             }}>Submit</span>
           </div> : null }
 
