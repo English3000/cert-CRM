@@ -113,6 +113,6 @@ attribute         | datatype | settings
 
 0. documentation **(COMPLETE)**
 1. backend **(COMPLETE)**
-2. frontend  **(SKELETONED - REDUX CYCLES)**
+2. frontend  **(COMPLETE - TESTING)**
 3. production deployment & troubleshooting
 4. tests _(at this stage, there's a working product--the tests ensure another developer doesn't accidentally break existing functionality)_

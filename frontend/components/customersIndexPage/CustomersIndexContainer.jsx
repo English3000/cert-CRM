@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchCustomers, createCustomer } from '../actions/customerActions';
+import { fetchCustomers, createCustomer } from '../../actions/customerActions';
 import CustomerDetailContainer from './CustomerDetailContainer';
 import LoadingIcon from '../../utils/LoadingIcon';
 
@@ -16,8 +16,11 @@ const mapDispatchToProps = dispatch => ({
 
 //display customer form errors somewhere
 class CustomersIndex extends React.Component {
-  state = { all_ids: this.props.customers.all_ids, customerForm: false,
-            name: '', email: '', password: '' };
+  constructor(props) {
+    super(props);
+    this.state = { all_ids: this.props.customers.all_ids, customerForm: false,
+                   name: '', email: '', password: '' };
+  }
 
   componentWillMount() { this.props.fetchCustomers(); }
 

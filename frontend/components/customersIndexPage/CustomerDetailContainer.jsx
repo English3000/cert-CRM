@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteCustomer } from '../actions/customerActions';
-import { /*fetchCertificate,*/ createCertificate } from '../actions/certificateActions';
+import { deleteCustomer } from '../../actions/customerActions';
+import { /*fetchCertificate,*/ createCertificate } from '../../actions/certificateActions';
 
 const mapStateToProps = ({ data }) => ({
   certificates: data.certificates
@@ -15,8 +15,11 @@ const mapDispatchToProps = dispatch => ({
 
 //POTENTIAL BUGS: certificates overflow
 class CustomerDetail extends React.Component {
-  state = { privateKey: '', activated: true, expandCert: false,
-            certForm: false, certBody: '', confirmDelete: false };
+  constructor(props) {
+    super(props);
+    this.state = { privateKey: '', activated: true, expandCert: false,
+                   certForm: false, certBody: '', confirmDelete: false };
+  }
 
   render() {
     const { customer, DeleteCustomer,

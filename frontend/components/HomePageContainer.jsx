@@ -12,7 +12,10 @@ const mapDispatchToProps = dispatch => ({
 
  //POTENTIAL BUGS: inputs
 class HomePage extends React.Component {
-  state = {form: false, email: 'admin@cert.crm', password: 'adminDemo'};
+  constructor(props) {
+    super(props);
+    this.state = {form: false, email: 'admin@cert.crm', password: 'adminDemo'};
+  }
 
   render() {
     const { errors, signIn } = this.props;
@@ -32,7 +35,7 @@ class HomePage extends React.Component {
                    defaultValue={password} style={{marginLeft: 5}}
                    onChange={event => this.setState({password: event.target.value})}/>
             <span onClick={() => signIn({email, password})}
-                  style={backgroundColor: 'gray', marginLeft: 5}>Sign In
+                  style={{backgroundColor: 'gray', marginLeft: 5}}>Sign In
             </span>
           </div>
           <p style={{color: 'white'}}>{errors ? errors.map(

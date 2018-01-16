@@ -1,13 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateCertificate } from '../actions/certificateActions';
+import { updateCertificate } from '../../actions/certificateActions';
 
 const mapDispatchToProps = dispatch => ({
   UpdateCertificate: certificate => dispatch(updateCertificate(certificate))
 });
 
 class Certificate extends React.Component {
-  state = {update: false};
+  constructor(props) {
+    super(props);
+    this.state = {update: false};
+  }
 
   render() {
     const {certificate, UpdateCertificate, expanded} = this.props;
