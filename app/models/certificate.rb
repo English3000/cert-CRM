@@ -6,7 +6,7 @@ class Certificate < ApplicationRecord
 
   after_initialize :setup_cert
   def setup_cert
-    self.private_key = SecureRandom::urlsafe_base64(16)
+    self.private_key = SecureRandom::urlsafe_base64
     self.active? = true
     self
   end

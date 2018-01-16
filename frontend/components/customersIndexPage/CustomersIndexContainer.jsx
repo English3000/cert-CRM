@@ -13,20 +13,45 @@ const mapDispatchToProps = dispatch => ({
   CreateCustomer: customer => dispatch(createCustomer(customer))
 });
 
+//display customer form errors somewhere
 class CustomersIndex extends React.Component {
-  state = {customers: this.props.customers};
+  state = { all_ids: this.props.customers.all_ids, customerForm: false,
+            name: '', email: '', password: '' };
 
   componentWillMount() { this.props.fetchCustomers(); }
 
   render() {
-    const {customer} = this.state;
-    const {FetchCertificate, certificates} = this.props;
+    const { all_ids, customerForm, name, email, password } = this.state;
+    const { customers, CreateCustomer, certificates } = this.props;
 
     return (<div style={{display: 'flex', justifyContent: 'center'}}>
-      {/* search box--filters down customers slice */}
+      <div style={{display: 'flex', alignItems: 'center'}}>
+        <i className='fa fa-user-plus fa-lg' style={{marginRight: 5}}
+           onClick={() => this.setState({customerForm: true})}></i>
+        <input defaultValue='Search for customers' onChange={event => {
+          let ids_array = customers.all_ids.filter(
+            id => customers.by_id[id].name.includes(event.target.value)
+          );
+          this.setState({all_ids: ids_array});
+        }}/>
+      </div>
+
+      { customerForm ? <div>
+        <input type='text' placeholder='Name' autoFocus
+               onChange={event => this.setState({name: event.target.value})}/>
+        <input type='text' placeholder='Email'
+               onChange={event => this.setState({email: event.target.value})}/>
+        <input type='text' placeholder='Password'
+               onChange={event => this.setState({password: event.target.value})}/>
+        <span onClick={() => {
+          CreateCustomer({name, email, password, 'admin?': false});
+          this.setState({customerForm: false});
+        }}>Submit</span>
+      </div> : null }
+
       <main style={{maxWidth: 900, backgroundColor: 'goldenrod'}}>
-        {customers.all_ids.length > 0 ?
-          customers.all_ids.map(
+        {all_ids.length > 0 ?
+          all_ids.map(
             customerId => <CustomerDetailContainer key={`customer-${customerId}`}
                                                    customer={customers.by_id[customerId]}/>
           ) : <LoadingIcon/>}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { deleteCustomer } from '../actions/customerActions'; //
-import { fetchCertificate } from '../actions/certificateActions'; //
+import { fetchCertificate, createCertificate } from '../actions/certificateActions'; //
 
 const mapStateToProps = ({ data }) => ({
   certificates: data.certificates
@@ -9,24 +9,32 @@ const mapStateToProps = ({ data }) => ({
 
 const mapDispatchToProps = dispatch => ({
   DeleteCustomer: id => dispatch(deleteCustomer(id)),
-  FetchCertificate: privateKey => dispatch(fetchCertificate(privateKey))
+  FetchCertificate: privateKey => dispatch(fetchCertificate(privateKey)),
+  CreateCertificate: certificate => dispatch(createCertificate(certificate))
 });
 
 //POTENTIAL BUGS: certificates overflow
 class CustomerDetail extends React.Component {
-  state = {privateKey: '', activated: true, expandCert: false};
+  state = { privateKey: '', activated: true, expandCert: false,
+            certForm: false, certBody: '', confirmDelete: false };
 
   render() {
     const { customer, DeleteCustomer,
-            certificates, FetchCertificate } = this.props;
-    const { privateKey, activated, expandCert, readOnly } = this.state;
+            certificates, FetchCertificate, CreateCertificate } = this.props;
+    const { privateKey, activated, expandCert,
+            certForm, certBody, confirmDelete } = this.state;
 
-    // * upon clicking trash button, should ask for confirmation *
     return (<section style={{display: 'flex', margin: 15}}>
       <aside>
         <i className='fa fa-trash fa-lg'
            style={{color: 'beige', display: 'inline-block', margin: 5}}
-           onClick={() => DeleteCustomer(customer.id)}></i>
+           onClick={() => this.setState({confirmDelete: true})}></i>
+
+        { confirmDelete ? <div style={{position: 'fixed', marginLeft: -50}}
+                               onClick={() => this.setState({confirmDelete: false})}>
+          <p onClick={() => DeleteCustomer(customer.id)}>Confirm</p>
+          <p>Cancel</p>
+        </div> : null }
 
         <div>
           <p>{customer.name}</p>
@@ -39,6 +47,18 @@ class CustomerDetail extends React.Component {
               Validate
             </span>
           </div>
+
+          <p onClick={() => this.setState({certForm: true})}>Create Certificate</p>
+
+          { certForm ? <div style={{position: 'fixed', marginLeft: -50}}>
+            <textarea onChange={event => this.setState({certBody: event.target.value})}>
+              {certBody}
+            </textarea>
+            <span onClick={() => {
+              CreateCertificate({body: certBody, user_id: customer.id});
+              this.setState({certForm: false});
+            }}>Submit</span>
+          </div> : null }
 
           <div style={{textAlign: 'center'}}
                onClick={() => this.setState({activated: !activated})}>
