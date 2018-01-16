@@ -1,4 +1,15 @@
 class Api::CertificatesController < ApplicationController
+  # def index
+  #   private_key = params[:certificate][:private_key]
+  #   if private_key
+  #     cert = Certificate.find_by(private_key: private_key)
+  #     #email certificate to customer using ActionMailer
+  #     cert ? (render json: true) : (render json: false)
+  #   else
+  #     #if there were another GET 'api/customers' request w/o a payload
+  #   end
+  # end
+
   def create
     @cert = Certificate.new(cert_params)
     @cert.save ? (render :certificate) :
@@ -19,6 +30,6 @@ class Api::CertificatesController < ApplicationController
 
   private
   def cert_params
-    params.require(:certificate).permit(:id, :body, :active?, :user_id)
+    params.require(:certificate).permit(:id, :body, :active?, :user_id, :private_key)
   end
 end

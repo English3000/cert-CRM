@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signOut } from '../actions/sessionActions'; //
+import { signOut } from '../actions/sessionActions';
 import CustomersIndexContainer from './customersIndexPage/CustomersIndexContainer';
 
 const mapStateToProps = ({ session }) => ({

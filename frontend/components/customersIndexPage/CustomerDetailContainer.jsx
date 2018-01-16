@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteCustomer } from '../actions/customerActions'; //
-import { fetchCertificate, createCertificate } from '../actions/certificateActions'; //
+import { deleteCustomer } from '../actions/customerActions';
+import { /*fetchCertificate,*/ createCertificate } from '../actions/certificateActions';
 
 const mapStateToProps = ({ data }) => ({
   certificates: data.certificates
@@ -9,7 +9,7 @@ const mapStateToProps = ({ data }) => ({
 
 const mapDispatchToProps = dispatch => ({
   DeleteCustomer: id => dispatch(deleteCustomer(id)),
-  FetchCertificate: privateKey => dispatch(fetchCertificate(privateKey)),
+  // FetchCertificate: privateKey => dispatch(fetchCertificate(privateKey)),
   CreateCertificate: certificate => dispatch(createCertificate(certificate))
 });
 
@@ -20,7 +20,7 @@ class CustomerDetail extends React.Component {
 
   render() {
     const { customer, DeleteCustomer,
-            certificates, FetchCertificate, CreateCertificate } = this.props;
+            certificates, /*FetchCertificate,*/ CreateCertificate } = this.props;
     const { privateKey, activated, expandCert,
             certForm, certBody, confirmDelete } = this.state;
 
@@ -43,7 +43,7 @@ class CustomerDetail extends React.Component {
           <div>
             <input type='text' placeholder='Private key' style={{display: 'inline-block'}}
                    onChange={event => this.setState({privateKey: event.target.value})}/>
-            <span style={{marginLeft: 5}} onClick={() => FetchCertificate({privateKey})}>
+            <span style={{marginLeft: 5}} onClick={() => alert("Functionality not included.")/*FetchCertificate({privateKey})*/}>
               Validate
             </span>
           </div>

@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchCustomers, createCustomer } from '../actions/customerActions'; //
-import CustomerDetailContainer from './CustomerDetailContainer'; //
-import LoadingIcon from '../../utils/LoadingIcon'; //
+import { fetchCustomers, createCustomer } from '../actions/customerActions';
+import CustomerDetailContainer from './CustomerDetailContainer';
+import LoadingIcon from '../../utils/LoadingIcon';
 
-const mapStateToProps = ({ data }) => ({
+const mapStateToProps = ({ data, ui }) => ({
   customers: data.customers,
+  pageLoading: ui.pageLoading
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -22,7 +23,7 @@ class CustomersIndex extends React.Component {
 
   render() {
     const { all_ids, customerForm, name, email, password } = this.state;
-    const { customers, CreateCustomer, certificates } = this.props;
+    const { customers, CreateCustomer, certificates, pageLoading } = this.props;
 
     return (<div style={{display: 'flex', justifyContent: 'center'}}>
       <div style={{display: 'flex', alignItems: 'center'}}>
@@ -50,11 +51,11 @@ class CustomersIndex extends React.Component {
       </div> : null }
 
       <main style={{maxWidth: 900, marginTop: 45}}>
-        {all_ids.length > 0 ?
-          all_ids.map(
+        { pageLoading ? <LoadingIcon/> :
+          all_ids.length > 0 ? all_ids.map(
             customerId => <CustomerDetailContainer key={`customer-${customerId}`}
                                                    customer={customers.by_id[customerId]}/>
-          ) : <LoadingIcon/>}
+          ) : <p>Customer not found.</p> }
       </main>
     </div>);
   }
