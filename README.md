@@ -18,9 +18,9 @@ _(live demo will be provided here upon deployment)_
 ## Provided Features
 
 1. Admin sign in & out **(SKELETONED)**
-2. Customer search
-3. Customer creation & deletion
-4. Certificate creation & updating, expandable on click
+2. Customer search **(SKELETONED)**
+3. Customer creation & deletion **(SKELETONED)**
+4. Certificate creation & updating, expandable on click **(SKELETONED)**
 5. Production deployment
 
 ## Assumptions
@@ -112,6 +112,6 @@ attribute         | datatype | settings
 ## Order of Implementation
 
 1. backend **(COMPLETE)**
-2. frontend
+2. frontend  **(SKELETONED - REDUX CYCLES)**
 3. production deployment & troubleshooting
 4. tests _(at this stage, there's a working product--the tests ensure another developer doesn't accidentally break existing functionality)_
