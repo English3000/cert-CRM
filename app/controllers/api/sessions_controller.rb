@@ -3,7 +3,7 @@ class Api::SessionsController < ApplicationController
     render status: 404 unless signed_in?
 
     sign_out
-    render {}
+    render json: {}
   end
 
   def create

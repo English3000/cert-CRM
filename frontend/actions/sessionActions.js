@@ -14,7 +14,7 @@ export const receiveErrors = errors => ({
 
 export const signIn = user => dispatch => (
   Api.signIn(user)
-    .then( u => dispatch(receiveCurrentUser(u.id)),
+    .then( u => dispatch(receiveCurrentUser(u)),
            err => dispatch(receiveErrors(err.responseJSON)) )
 );
 export const signOut = () => dispatch => (

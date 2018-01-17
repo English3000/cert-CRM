@@ -28,11 +28,12 @@ class CustomersIndex extends React.Component {
     const { all_ids, customerForm, name, email, password } = this.state;
     const { customers, CreateCustomer, certificates, pageLoading } = this.props;
 
-    return (<div style={{display: 'flex', justifyContent: 'center'}}>
-      <div style={{display: 'flex', alignItems: 'center'}}>
-        <i className='fa fa-user-plus fa-lg' style={{marginRight: 5}}
-           onClick={() => this.setState({customerForm: true})}></i>
-        <input defaultValue='Search for customers' onChange={event => {
+    return (<div>
+      <div style={{display: 'flex', alignItems: 'center', justifyContent:'center', marginBottom: 25}}>
+        <div onClick={() => this.setState({customerForm: true})}>
+          <i className='fa fa-user-plus fa-lg clickable' style={{marginRight: 5}}></i>
+        </div>
+        <input placeholder='Search for customers' onChange={event => {
           let ids_array = customers.all_ids.filter(
             id => customers.by_id[id].name.includes(event.target.value)
           );
@@ -40,25 +41,33 @@ class CustomersIndex extends React.Component {
         }}/>
       </div>
 
-      { customerForm ? <div>
-        <input type='text' placeholder='Name' autoFocus
-               onChange={event => this.setState({name: event.target.value})}/>
-        <input type='text' placeholder='Email'
-               onChange={event => this.setState({email: event.target.value})}/>
-        <input type='text' placeholder='Password'
-               onChange={event => this.setState({password: event.target.value})}/>
-        <span onClick={() => {
-          CreateCustomer({name, email, password, 'admin?': false});
-          this.setState({customerForm: false}); //need error handling
-        }}>Submit</span>
+      { customerForm ? <div style={{margin: '0 auto'}}>
+        <p style={{marginBottom: 7.5, textAlign: 'center', fontWeight: 500}}>
+          Add Customer
+        </p>
+        <div style={{backgroundColor: 'goldenrod', padding: 10, borderRadius: 3,
+                     display: 'flex', justifyContent: 'center', alignItems: 'center',
+                     width: 400, margin: '0 auto'}}>
+          <input type='text' placeholder='Name' style={{marginRight: 5}} autoFocus
+                 onChange={event => this.setState({name: event.target.value})}/>
+          <input type='text' placeholder='Email' style={{marginRight: 5}}
+                 onChange={event => this.setState({email: event.target.value})}/>
+          <input type='text' placeholder='Password' style={{marginRight: 7.5}}
+                 onChange={event => this.setState({password: event.target.value})}/>
+          <span style={{backgroundColor: 'white', borderRadius: 2, paddingLeft: 2.5, paddingRight: 2.5}}
+                className='clickable' onClick={() => {
+                  CreateCustomer({name, email, password, 'admin?': false});
+                  this.setState({customerForm: false}); //need error handling
+          }}>Submit</span>
+        </div>
       </div> : null }
 
-      <main style={{maxWidth: 900, marginTop: 45}}>
+      <main style={{margin: '0 auto', maxWidth: 900, marginTop: 15}}>
         { pageLoading ? <LoadingIcon/> :
           all_ids.length > 0 ? all_ids.map(
             customerId => <CustomerDetailContainer key={`customer-${customerId}`}
                                                    customer={customers.by_id[customerId]}/>
-          ) : <p>Customer not found.</p> }
+          ) : <p style={{textAlign: 'center'}}>Customer not found.</p> }
       </main>
     </div>);
   }
