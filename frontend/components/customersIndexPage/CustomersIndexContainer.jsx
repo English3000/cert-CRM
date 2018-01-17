@@ -26,7 +26,9 @@ class CustomersIndex extends React.Component {
   componentWillMount() { this.props.fetchCustomers(); }
 
   componentWillReceiveProps(newProps) {
-    this.setState({all_ids: newProps.customers.all_ids});
+    if (this.props.customers.all_ids.length !== newProps.customers.all_ids) {
+      this.setState({all_ids: newProps.customers.all_ids});
+    }
   }
 
   render() {

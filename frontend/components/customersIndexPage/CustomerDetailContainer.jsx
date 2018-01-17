@@ -95,7 +95,7 @@ class CustomerDetail extends React.Component {
         </div>
       </aside>
 
-      <main>
+      <main style={{display: 'flex', overflow: 'scroll'}}>
         { expandCert ? <CertificateContainer key={`certificate-${expandCert}`}
                                              certificate={certificates[expandCert]} expanded={!!expandCert}
                                              onClick={() => this.setState({expandCert: false})}/> :

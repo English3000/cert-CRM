@@ -7,7 +7,7 @@ _(live demo will be provided here upon deployment)_
 
 ## Updates
 
-* Expandable certificates on click, for enhanced readability. _(Doing modals would be messy because of the [component hierarchy](https://github.com/English3000/cert-CRM#component-hierarchy).)_
+* POTENTIAL EXTRA FUNCTIONALITY: Expandable certificates on click, for enhanced readability. _(No need for short- to medium-sized certificates.)_
 
 * Updated [Order of Implementation](https://github.com/English3000/cert-CRM#order-of-implementation) (allows for faster workflow)
 
@@ -89,20 +89,21 @@ attribute         | datatype | settings
           id: 1, //needed for RESTful deletions
           name: '_',
           email: '_@_._', //validate proper formatting
-          active_certs: [1/* ... */],
-          inactive_certs: [2/* ... */]
+          certificate_ids: [1, 2]
         }
       },
       all_ids: [1/* ... */]
     },
-    certificates: { //`active?` columns not needed b/c distinction made in customers slice
+    certificates: {
       1: {
         id: 1, //needed for RESTful updates
-        body: '...'
+        body: '...',
+        active?: true
       },
       2: {
         id: 2,
-        body: '...'
+        body: '...',
+        active?: false
       }
     }
   }
@@ -113,6 +114,6 @@ attribute         | datatype | settings
 
 0. documentation **(COMPLETE)**
 1. backend **(COMPLETE)**
-2. frontend  **(COMPLETE - TESTING)**
+2. frontend  **(COMPLETE)**
 3. production deployment & troubleshooting
 4. tests _(at this stage, there's a working product--the tests ensure another developer doesn't accidentally break existing functionality)_

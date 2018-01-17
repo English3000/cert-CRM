@@ -13,7 +13,7 @@ const mapDispatchToProps = dispatch => ({
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {form: false, email: 'admin@cert.crm', password: 'adminDemo'};
+    this.state = {form: false, email: 'admin@cert.crm', password: 'demoAdmin'};
   }
 
   render() {
