@@ -17,10 +17,10 @@ _(live demo will be provided here upon deployment)_
 
 ## Provided Features
 
-1. Admin sign in & out **(SKELETONED)**
-2. Customer search **(SKELETONED)**
-3. Customer creation & deletion **(SKELETONED)**
-4. Certificate creation & updating, expandable on click **(SKELETONED)**
+1. Admin sign in & out **(COMPLETE)**
+2. Customer search **(COMPLETE)**
+3. Customer creation & deletion **(COMPLETE w/ re-rendering bug)**
+4. Certificate creation & updating **(COMPLETE w/ re-rendering bug)**
 5. Production deployment
 
 ## Assumptions
