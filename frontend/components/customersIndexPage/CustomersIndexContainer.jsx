@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchCustomers, createCustomer } from '../../actions/customerActions';
 import CustomerDetailContainer from './CustomerDetailContainer';
-import LoadingIcon from '../../utils/LoadingIcon';
+import LoadingIcon from '../../utils/LoadingIcon'; //would use for heavier data loads, replacing null w/in <main>
 
 const mapStateToProps = ({ data, errors, ui }) => ({
   customers: data.customers,
@@ -68,7 +68,7 @@ class CustomersIndex extends React.Component {
       </div> : null }
 
       <main style={{margin: '0 auto', maxWidth: 900, marginTop: 15}}>
-        { pageLoading ? <LoadingIcon/> :
+        { pageLoading ? null :
           all_ids.length > 0 ? all_ids.map(
             customerId => (<CustomerDetailContainer key={`customer-${customerId}`}
                                                     customer={customers.by_id[customerId]}/>)

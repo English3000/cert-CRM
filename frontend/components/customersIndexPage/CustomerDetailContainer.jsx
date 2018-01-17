@@ -22,7 +22,7 @@ class CustomerDetail extends React.Component {
                    certForm: false, certBody: '', confirmDelete: false, newProps: false };
   }
 
-  render() { //rendering error when deleting customer
+  render() {
     const { customer, DeleteCustomer,
             certificates, /*FetchCertificate,*/ CreateCertificate } = this.props;
     const { privateKey, activated, expandCert,
@@ -38,7 +38,7 @@ class CustomerDetail extends React.Component {
              style={{color: 'beige', display: 'inline-block'}}></i>
         </div>
 
-        { confirmDelete ? <div style={{position: 'fixed', marginLeft: -85}}
+        { confirmDelete ? <div style={{position: 'absolute', marginLeft: -85}}
                                onClick={() => this.setState({confirmDelete: false})}>
           <p style={{backgroundColor: 'red', padding: 5}} className='clickable'
              onClick={() => DeleteCustomer(customer.id)}>Confirm</p>
@@ -68,9 +68,10 @@ class CustomerDetail extends React.Component {
             </span>
           </p>
 
-          { certForm ? <div style={{position: 'fixed', marginLeft: -235, marginTop: -25,
+          { certForm ? <div style={{position: 'absolute', marginLeft: -205, marginTop: -25,
                                     display: 'flex', alignItems: 'center'}}>
-            <textarea onChange={event => this.setState({certBody: event.target.value})}
+            <textarea style={{height: 60, width: 90, resize: 'none'}}
+                      onChange={event => this.setState({certBody: event.target.value})}
                       placeholder='Certificate Body' value={certBody} autoFocus>
             </textarea>
             <span style={{marginLeft: 5, backgroundColor: 'white'}}

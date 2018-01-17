@@ -24,7 +24,7 @@ class HomePage extends React.Component {
       <main style={{display: 'flex', flex: 1, justifyContent: 'center', alignItems: 'center', height: 700}}>
         <p style={{fontSize: 50}}>Company Page</p>
       </main>
-      <footer style={{position: 'absolute', bottom: 0, zIndex: 2, width: '100%',
+      <footer style={{position: 'fixed', bottom: 0, zIndex: 2, width: '100%',
                       backgroundColor: 'black', color: 'white', display: 'flex',
                       padding: 7.5}}>
         <span className='clickable'

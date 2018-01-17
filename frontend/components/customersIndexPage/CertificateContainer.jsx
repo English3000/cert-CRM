@@ -12,7 +12,7 @@ class Certificate extends React.Component {
     this.state = {update: false};
   }
 
-  render() { //bug: can activate/deactivate once; if do so again, UI shows wrong buttons--same issue w/ creating cert's
+  render() {
     const {certificate, UpdateCertificate, expanded} = this.props;
     const {update} = this.state;
 
