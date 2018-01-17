@@ -37,9 +37,8 @@ class HomePage extends React.Component {
               <input type='password' placeholder='Password'
                      defaultValue={password} style={{marginLeft: 7.5}}
                      onChange={event => this.setState({password: event.target.value})}/>
-              <span className='clickable' onClick={() => SignIn({email, password})}
-                    style={{marginLeft: 7.5, backgroundColor: 'white', color: 'black',
-                            borderRadius: 2, paddingLeft: 5, paddingRight: 5}}>
+              <span className='clickable button' onClick={() => SignIn({email, password})}
+                    style={{marginLeft: 7.5, backgroundColor: 'white', color: 'black'}}>
                 Sign In
               </span>
           </div> : <div>&emsp;</div>}

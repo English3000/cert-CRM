@@ -50,16 +50,15 @@ class CustomerDetail extends React.Component {
           <div style={{display: 'flex', alignItems: 'center', marginTop: 2.5, marginBottom: 7.5}}>
             <input type='text' placeholder='Private key' style={{display: 'inline-block'}}
                    onChange={event => this.setState({privateKey: event.target.value})}/>
-            <span style={{marginLeft: 7.5, backgroundColor: 'white',
-                          borderRadius: 2, paddingLeft: 5, paddingRight: 5}}
-                  className='clickable' onClick={() => alert("Functionality not included.")/*FetchCertificate({privateKey})*/}>
+            <span style={{marginLeft: 7.5, backgroundColor: 'white', fontSize: 14, fontWeight: 500}}
+                  className='clickable button' onClick={() => alert("Functionality not included.")/*FetchCertificate({privateKey})*/}>
               Validate
             </span>
           </div>
 
           <p style={{marginBottom: 7.5}}>
-            <span className='clickable' style={{backgroundColor: 'yellow',
-                          borderRadius: 2, paddingLeft: 5, paddingRight: 5}}
+            <span className='clickable button' style={{backgroundColor: 'yellow', fontSize: 14, fontWeight: 500,
+                          borderRadius: 3, paddingTop: 2.5, paddingBottom: 2.5}}
                onClick={() => this.setState({certForm: true})}>
               Create Certificate
             </span>
@@ -71,9 +70,8 @@ class CustomerDetail extends React.Component {
                       placeholder='Certificate Body' autoFocus>
               {certBody}
             </textarea>
-            <span style={{marginLeft: 5, backgroundColor: 'white',
-                          borderRadius: 2, paddingLeft: 5, paddingRight: 5}}
-                  className='clickable' onClick={() => {
+            <span style={{marginLeft: 5, backgroundColor: 'white'}}
+                  className='clickable button' onClick={() => {
               CreateCertificate({body: certBody, user_id: customer.id});
               this.setState({certForm: false}); //need error handling
             }}>Submit</span>
@@ -83,12 +81,12 @@ class CustomerDetail extends React.Component {
                                      marginBottom: 2.5, backgroundColor: 'lightgreen',
                                      borderRadius: 10, paddingLeft: 5, paddingRight: 5}}
                              onClick={() => this.setState({activated: !activated})}>
-              <span className='clickable'>Reactivate<br/>a Certificate</span>
+              <span style={{fontSize: 14, fontWeight: 500}} className='clickable'>Reactivate<br/>a Certificate</span>
           </div> : <div style={{textAlign: 'center', width: 85,
                                 marginBottom: 2.5, backgroundColor: 'red',
                                 borderRadius: 10, paddingLeft: 5, paddingRight: 5}}
                         onClick={() => this.setState({activated: !activated})}>
-            <span className='clickable'>View Active<br/>Certificates</span>
+            <span style={{fontSize: 14, fontWeight: 500}} className='clickable'>View Active<br/>Certificates</span>
           </div> }
         </div>
       </aside>
