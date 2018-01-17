@@ -43,10 +43,12 @@ class HomePage extends React.Component {
                             borderRadius: 2, paddingLeft: 5, paddingRight: 5}}>Sign In
               </span>
           </div> : <div>&emsp;</div>}
-          <p style={{fontSize: 12}}>{errors ? errors.map(err => <span>{`${err}. `}</span>) : <span>&emsp;</span>}</p>
+          <p style={{fontSize: 12}}>{errors ? errors.map(
+            err => <span key={`${err}`} style={{color: 'white'}}>{`${err}. `}</span>
+          ) : <span key='no-errors'>&emsp;</span>}</p>
         </div>
       </footer>
-    </div>);
+    </div>); //errors aren't appearing
   }
 }
 

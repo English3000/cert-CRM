@@ -31,9 +31,9 @@ class CustomersIndex extends React.Component {
     return (<div>
       <div style={{display: 'flex', alignItems: 'center', justifyContent:'center', marginBottom: 25}}>
         <div onClick={() => this.setState({customerForm: true})}>
-          <i className='fa fa-user-plus fa-lg clickable' style={{marginRight: 5}}></i>
+          <i className='fa fa-user-plus fa-lg clickable' style={{marginRight: 7.5}}></i>
         </div>
-        <input placeholder='Search for customers' onChange={event => {
+        <input style={{width: 150, padding: 3, paddingLeft: 4.5, fontSize: 14}} placeholder='Search for customers' onChange={event => {
           let ids_array = customers.all_ids.filter(
             id => customers.by_id[id].name.includes(event.target.value)
           );
