@@ -3,14 +3,13 @@ import { connect } from 'react-redux';
 import { signIn } from '../actions/sessionActions';
 
 const mapStateToProps = ({ errors }) => ({
-  errors: errors.session
+  errors
 });
 
 const mapDispatchToProps = dispatch => ({
   SignIn: user => dispatch(signIn(user))
 });
 
- //POTENTIAL BUGS: inputs
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -40,15 +39,16 @@ class HomePage extends React.Component {
                      onChange={event => this.setState({password: event.target.value})}/>
               <span className='clickable' onClick={() => SignIn({email, password})}
                     style={{marginLeft: 7.5, backgroundColor: 'white', color: 'black',
-                            borderRadius: 2, paddingLeft: 5, paddingRight: 5}}>Sign In
+                            borderRadius: 2, paddingLeft: 5, paddingRight: 5}}>
+                Sign In
               </span>
           </div> : <div>&emsp;</div>}
-          <p style={{fontSize: 12}}>{errors ? errors.map(
-            err => <span key={`${err}`} style={{color: 'white'}}>{`${err}. `}</span>
+          <p style={{fontSize: 12, marginLeft: 7.5, marginTop: 2.5}}>{errors.length > 0 ? errors.map(
+            err => (<span key={`${err}`} style={{color: 'white'}}>{`${err}. `}</span>)
           ) : <span key='no-errors'>&emsp;</span>}</p>
         </div>
       </footer>
-    </div>); //errors aren't appearing
+    </div>);
   }
 }
 

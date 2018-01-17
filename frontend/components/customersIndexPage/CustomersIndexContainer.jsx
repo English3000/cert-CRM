@@ -4,8 +4,9 @@ import { fetchCustomers, createCustomer } from '../../actions/customerActions';
 import CustomerDetailContainer from './CustomerDetailContainer';
 import LoadingIcon from '../../utils/LoadingIcon';
 
-const mapStateToProps = ({ data, ui }) => ({
+const mapStateToProps = ({ data, errors, ui }) => ({
   customers: data.customers,
+  errors,
   pageLoading: ui.pageLoading
 });
 
@@ -24,12 +25,16 @@ class CustomersIndex extends React.Component {
 
   componentWillMount() { this.props.fetchCustomers(); }
 
+  componentWillReceiveProps(newProps) {
+    this.setState({all_ids: newProps.customers.all_ids});
+  }
+
   render() {
     const { all_ids, customerForm, name, email, password } = this.state;
     const { customers, CreateCustomer, certificates, pageLoading } = this.props;
 
     return (<div>
-      <div style={{display: 'flex', alignItems: 'center', justifyContent:'center', marginBottom: 25}}>
+      <div style={{display: 'flex', alignItems: 'center', justifyContent:'center', marginBottom: 15}}>
         <div onClick={() => this.setState({customerForm: true})}>
           <i className='fa fa-user-plus fa-lg clickable' style={{marginRight: 7.5}}></i>
         </div>
@@ -65,8 +70,8 @@ class CustomersIndex extends React.Component {
       <main style={{margin: '0 auto', maxWidth: 900, marginTop: 15}}>
         { pageLoading ? <LoadingIcon/> :
           all_ids.length > 0 ? all_ids.map(
-            customerId => <CustomerDetailContainer key={`customer-${customerId}`}
-                                                   customer={customers.by_id[customerId]}/>
+            customerId => (<CustomerDetailContainer key={`customer-${customerId}`}
+                                                    customer={customers.by_id[customerId]}/>)
           ) : <p style={{textAlign: 'center'}}>Customer not found.</p> }
       </main>
     </div>);

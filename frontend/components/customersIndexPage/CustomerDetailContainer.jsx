@@ -21,53 +21,75 @@ class CustomerDetail extends React.Component {
                    certForm: false, certBody: '', confirmDelete: false };
   }
 
-  render() {
+  render() { //rendering error when deleting customer
     const { customer, DeleteCustomer,
             certificates, /*FetchCertificate,*/ CreateCertificate } = this.props;
     const { privateKey, activated, expandCert,
             certForm, certBody, confirmDelete } = this.state;
 
-    return (<section style={{display: 'flex', backgroundColor: 'goldenrod', marginBottom: 15}}>
-      <aside>
-        <i className='fa fa-trash fa-lg'
-           style={{color: 'beige', display: 'inline-block', margin: 5}}
-           onClick={() => this.setState({confirmDelete: true})}></i>
+    return (<section style={{backgroundColor: 'goldenrod', marginBottom: 15, padding: 7.5}}>
+      <aside style={{display: 'flex'}}>
+        <div onClick={() => this.setState({confirmDelete: true})}>
+          <i className='fa fa-trash fa-lg clickable'
+             style={{color: 'beige', display: 'inline-block'}}></i>
+        </div>
 
-        { confirmDelete ? <div style={{position: 'fixed', marginLeft: -50}}
+        { confirmDelete ? <div style={{position: 'fixed', marginLeft: -85}}
                                onClick={() => this.setState({confirmDelete: false})}>
-          <p onClick={() => DeleteCustomer(customer.id)}>Confirm</p>
-          <p>Cancel</p>
+          <p style={{backgroundColor: 'red', padding: 5}} className='clickable'
+             onClick={() => DeleteCustomer(customer.id)}>Confirm</p>
+          <p style={{backgroundColor: 'goldenrod', padding: 5, textAlign: 'center'}} className='clickable'>
+            Cancel
+          </p>
         </div> : null }
 
-        <div>
-          <p>{customer.name}</p>
+        <div style={{marginLeft: 7.5}}>
+          <p style={{fontWeight: 700}}>{customer.name}</p>
           <p>{customer.email}</p>
 
-          <div>
+          <div style={{display: 'flex', alignItems: 'center', marginTop: 2.5, marginBottom: 7.5}}>
             <input type='text' placeholder='Private key' style={{display: 'inline-block'}}
                    onChange={event => this.setState({privateKey: event.target.value})}/>
-            <span style={{marginLeft: 5}} onClick={() => alert("Functionality not included.")/*FetchCertificate({privateKey})*/}>
+            <span style={{marginLeft: 7.5, backgroundColor: 'white',
+                          borderRadius: 2, paddingLeft: 5, paddingRight: 5}}
+                  className='clickable' onClick={() => alert("Functionality not included.")/*FetchCertificate({privateKey})*/}>
               Validate
             </span>
           </div>
 
-          <p onClick={() => this.setState({certForm: true})}>Create Certificate</p>
+          <p style={{marginBottom: 7.5}}>
+            <span className='clickable' style={{backgroundColor: 'yellow',
+                          borderRadius: 2, paddingLeft: 5, paddingRight: 5}}
+               onClick={() => this.setState({certForm: true})}>
+              Create Certificate
+            </span>
+          </p>
 
-          { certForm ? <div style={{position: 'fixed', marginLeft: -50}}>
-            <textarea onChange={event => this.setState({certBody: event.target.value})}>
+          { certForm ? <div style={{position: 'fixed', marginLeft: -235, marginTop: -25,
+                                    display: 'flex', alignItems: 'center'}}>
+            <textarea onChange={event => this.setState({certBody: event.target.value})}
+                      placeholder='Certificate Body' autoFocus>
               {certBody}
             </textarea>
-            <span onClick={() => {
+            <span style={{marginLeft: 5, backgroundColor: 'white',
+                          borderRadius: 2, paddingLeft: 5, paddingRight: 5}}
+                  className='clickable' onClick={() => {
               CreateCertificate({body: certBody, user_id: customer.id});
               this.setState({certForm: false}); //need error handling
             }}>Submit</span>
           </div> : null }
 
-          <div style={{textAlign: 'center'}}
-               onClick={() => this.setState({activated: !activated})}>
-            { activated ? <span>Reactivate<br/>a Certificate</span> :
-                          <span>View Active<br/>Certificates</span> }
-          </div>
+          { activated ? <div style={{textAlign: 'center', width: 85,
+                                     marginBottom: 2.5, backgroundColor: 'lightgreen',
+                                     borderRadius: 10, paddingLeft: 5, paddingRight: 5}}
+                             onClick={() => this.setState({activated: !activated})}>
+              <span className='clickable'>Reactivate<br/>a Certificate</span>
+          </div> : <div style={{textAlign: 'center', width: 85,
+                                marginBottom: 2.5, backgroundColor: 'red',
+                                borderRadius: 10, paddingLeft: 5, paddingRight: 5}}
+                        onClick={() => this.setState({activated: !activated})}>
+            <span className='clickable'>View Active<br/>Certificates</span>
+          </div> }
         </div>
       </aside>
 
@@ -90,3 +112,4 @@ class CustomerDetail extends React.Component {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CustomerDetail);
+//maybe this is responsible for re-rendering bugs

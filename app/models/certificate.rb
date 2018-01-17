@@ -1,6 +1,7 @@
 class Certificate < ApplicationRecord
   validates :private_key, presence: true, uniqueness: true
-  validates :user_id, :body, :active?, presence: true
+  validates :user_id, :body, presence: true
+  validates :active?, inclusion: [true, false]
 
   belongs_to :user
 
