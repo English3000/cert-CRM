@@ -16,7 +16,7 @@ json.certificates do
   @customers.each do |customer|
     customer.certificates.each do |certificate|
       json.set! certificate.id do
-        json.extract! certificate, :id, :body
+        json.extract! certificate, :id, :body, :active?
       end
     end
   end

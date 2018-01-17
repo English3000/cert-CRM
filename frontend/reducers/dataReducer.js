@@ -13,7 +13,7 @@ const _defaultState = {
 
 export default (state = _defaultState, action) => {
   Object.freeze(state);
-  let newState = merge({}, state);
+  let newState = merge(_defaultState, state);
 
   switch (action.type) {
     case RECEIVE_CUSTOMERS:

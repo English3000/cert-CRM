@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { deleteCustomer } from '../../actions/customerActions';
 import { /*fetchCertificate,*/ createCertificate } from '../../actions/certificateActions';
+import CertificateContainer from './CertificateContainer';
 
 const mapStateToProps = ({ data }) => ({
   certificates: data.certificates
@@ -18,7 +19,7 @@ class CustomerDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = { privateKey: '', activated: true, expandCert: false,
-                   certForm: false, certBody: '', confirmDelete: false };
+                   certForm: false, certBody: '', confirmDelete: false, newProps: false };
   }
 
   render() { //rendering error when deleting customer
@@ -27,7 +28,10 @@ class CustomerDetail extends React.Component {
     const { privateKey, activated, expandCert,
             certForm, certBody, confirmDelete } = this.state;
 
-    return (<section style={{backgroundColor: 'goldenrod', marginBottom: 15, padding: 7.5}}>
+    const activeCertIds = customer.certificate_ids.filter(id => certificates[id]['active?']);
+    const inactiveCertIds = customer.certificate_ids.filter(id => !certificates[id]['active?']);
+
+    return (<section style={{backgroundColor: 'goldenrod', boxSizing: 'border-box', marginBottom: 15, padding: 7.5, display: 'flex', height: 222}}>
       <aside style={{display: 'flex'}}>
         <div onClick={() => this.setState({confirmDelete: true})}>
           <i className='fa fa-trash fa-lg clickable'
@@ -57,9 +61,9 @@ class CustomerDetail extends React.Component {
           </div>
 
           <p style={{marginBottom: 7.5}}>
-            <span className='clickable button' style={{backgroundColor: 'yellow', fontSize: 14, fontWeight: 500,
+            <span style={{backgroundColor: 'yellow', fontSize: 14, fontWeight: 500,
                           borderRadius: 3, paddingTop: 2.5, paddingBottom: 2.5}}
-               onClick={() => this.setState({certForm: true})}>
+               onClick={() => this.setState({certForm: true})} className='clickable button'>
               Create Certificate
             </span>
           </p>
@@ -67,14 +71,13 @@ class CustomerDetail extends React.Component {
           { certForm ? <div style={{position: 'fixed', marginLeft: -235, marginTop: -25,
                                     display: 'flex', alignItems: 'center'}}>
             <textarea onChange={event => this.setState({certBody: event.target.value})}
-                      placeholder='Certificate Body' autoFocus>
-              {certBody}
+                      placeholder='Certificate Body' value={certBody} autoFocus>
             </textarea>
             <span style={{marginLeft: 5, backgroundColor: 'white'}}
-                  className='clickable button' onClick={() => {
+                  onClick={() => {
               CreateCertificate({body: certBody, user_id: customer.id});
               this.setState({certForm: false}); //need error handling
-            }}>Submit</span>
+            }} className='clickable button'>Submit</span>
           </div> : null }
 
           { activated ? <div style={{textAlign: 'center', width: 85,
@@ -95,14 +98,14 @@ class CustomerDetail extends React.Component {
         { expandCert ? <CertificateContainer key={`certificate-${expandCert}`}
                                              certificate={certificates[expandCert]} expanded={!!expandCert}
                                              onClick={() => this.setState({expandCert: false})}/> :
-          activated ? customer.active_certs.map(
-          certId => <CertificateContainer key={`certificate-${certId}`}
-                                          certificate={certificates[certId]} expanded={!!expandCert}
-                                          onClick={() => this.setState({expandCert: certId})}/>
-        ) : customer.inactive_certs.map(
-          certId => <CertificateContainer key={`certificate-${certId}`}
-                                          certificate={certificates[certId]} expanded={!!expandCert}
-                                          onClick={() => this.setState({expandCert: certId})}/>
+          activated ? activeCertIds.map(
+            id => <CertificateContainer key={`certificate-${id}`}
+                                        certificate={certificates[id]} expanded={!!expandCert}
+                                        onClick={() => this.setState({expandCert: id})}/>
+        ) : inactiveCertIds.map(
+              id => <CertificateContainer key={`certificate-${id}`}
+                                          certificate={certificates[id]} expanded={!!expandCert}
+                                          onClick={() => this.setState({expandCert: id})}/>
         ) }
       </main>
     </section>);

@@ -1,1 +1,1 @@
-json.extract! @cert, :id, :body, :active?, :user_id
+json.extract! @cert, :id, :body, :active?

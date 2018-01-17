@@ -29,7 +29,7 @@ export const deleteCustomer = id => $.ajax({
 // });
 export const createCertificate = certificate => $.ajax({
   method: 'POST',
-  url: 'api/certificates',
+  url: `api/customers/${certificate.user_id}/certificates`,
   data: {certificate}
 });
 export const updateCertificate = certificate => $.ajax({

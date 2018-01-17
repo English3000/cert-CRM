@@ -26,6 +26,6 @@ class Api::CustomersController < ApplicationController
 
   private
   def customer_params
-    params.require(:user).permit(:id, :name, :email, :password, :admin?)
+    params.require(:customer).permit(:id, :name, :email, :password, :admin?)
   end
 end
