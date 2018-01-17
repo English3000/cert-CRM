@@ -1,7 +1,7 @@
 # Cert-CRM: _a generic CRM for managing customer's certificates_
 
 ### CURRENTLY IN DEVELOPMENT
-_(live demo will be provided here upon deployment)_
+_[live demo](http://cert-crm.herokuapp.com/#/)_
 
 **STACK:** React, Rails, Postgres
 
