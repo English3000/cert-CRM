@@ -51,7 +51,7 @@ class CustomerDetail extends React.Component {
           <p style={{fontWeight: 700}}>{customer.name}</p>
           <p>{customer.email}</p>
 
-          <div style={{display: 'flex', alignItems: 'center', marginTop: 2.5, marginBottom: 7.5}}>
+          <div style={{display: 'flex', alignItems: 'center', marginTop: 10, marginBottom: 12.5}}>
             <input type='text' placeholder='Private key' style={{display: 'inline-block'}}
                    onChange={event => this.setState({privateKey: event.target.value})}/>
             <span style={{marginLeft: 7.5, backgroundColor: 'white', fontSize: 14, fontWeight: 500}}
@@ -60,7 +60,7 @@ class CustomerDetail extends React.Component {
             </span>
           </div>
 
-          <p style={{marginBottom: 7.5}}>
+          <p style={{marginBottom: 12.5}}>
             <span style={{backgroundColor: 'yellow', fontSize: 14, fontWeight: 500,
                           borderRadius: 3, paddingTop: 2.5, paddingBottom: 2.5}}
                onClick={() => this.setState({certForm: true})} className='clickable button'>
@@ -68,25 +68,24 @@ class CustomerDetail extends React.Component {
             </span>
           </p>
 
-          { certForm ? <div style={{position: 'absolute', marginLeft: -205, marginTop: -25,
-                                    display: 'flex', alignItems: 'center'}}>
-            <textarea style={{height: 60, width: 90, resize: 'none'}}
+          { certForm ? <div style={{position: 'absolute', marginLeft: -170, marginTop: -37.5, boxShadow: '0 0 1px lightgray'}}>
+            <textarea style={{height: 85, width: 110, resize: 'none', backgroundColor: 'yellow', padding: 5, fontSize: 15}}
                       onChange={event => this.setState({certBody: event.target.value})}
                       placeholder='Certificate Body' value={certBody} autoFocus>
             </textarea>
-            <span style={{marginLeft: 5, backgroundColor: 'white'}}
+            <p style={{backgroundColor: 'white', textAlign: 'center', marginTop: -6}}
                   onClick={() => {
               CreateCertificate({body: certBody, user_id: customer.id});
               this.setState({certForm: false}); //need error handling
-            }} className='clickable button'>Submit</span>
+            }} className='clickable'>Submit</p>
           </div> : null }
 
-          { activated ? <div style={{textAlign: 'center', width: 85,
+          { activated ? <div style={{textAlign: 'center', width: 85, marginLeft: 7.5,
                                      marginBottom: 2.5, backgroundColor: 'lightgreen',
                                      borderRadius: 10, paddingLeft: 5, paddingRight: 5}}
                              onClick={() => this.setState({activated: !activated})}>
               <span style={{fontSize: 14, fontWeight: 500}} className='clickable'>Reactivate<br/>a Certificate</span>
-          </div> : <div style={{textAlign: 'center', width: 85,
+          </div> : <div style={{textAlign: 'center', width: 85, marginLeft: 7.5,
                                 marginBottom: 2.5, backgroundColor: 'red',
                                 borderRadius: 10, paddingLeft: 5, paddingRight: 5}}
                         onClick={() => this.setState({activated: !activated})}>

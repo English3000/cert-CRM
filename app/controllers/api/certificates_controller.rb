@@ -12,8 +12,12 @@ class Api::CertificatesController < ApplicationController
 
   def create
     @cert = Certificate.new(cert_params)
-    @cert.save ? (render :certificate) :
-      (render json: @cert.errors.full_messages, status: 422)
+    if @cert.save
+      @cert.user.updated_at = @cert.updated_at
+      render :certificate
+    else
+      render json: @cert.errors.full_messages, status: 422
+    end
   end
 
   def update

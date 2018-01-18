@@ -52,7 +52,7 @@ class CustomersIndex extends React.Component {
         <p style={{marginBottom: 7.5, textAlign: 'center', fontWeight: 500}}>
           Add Customer
         </p>
-        <div style={{backgroundColor: 'goldenrod', padding: 10, borderRadius: 3,
+        <div style={{backgroundColor: 'goldenrod', padding: 15,
                      display: 'flex', justifyContent: 'center', alignItems: 'center',
                      width: 400, margin: '0 auto'}}>
           <input type='text' placeholder='Name' style={{marginRight: 5}} autoFocus
@@ -61,8 +61,8 @@ class CustomersIndex extends React.Component {
                  onChange={event => this.setState({email: event.target.value})}/>
           <input type='text' placeholder='Password' style={{marginRight: 7.5}}
                  onChange={event => this.setState({password: event.target.value})}/>
-          <span style={{backgroundColor: 'white', borderRadius: 2, paddingLeft: 2.5, paddingRight: 2.5}}
-                className='clickable' onClick={() => {
+          <span style={{backgroundColor: 'white', fontSize: 14}}
+                className='clickable button' onClick={() => {
                   CreateCustomer({name, email, password, 'admin?': false});
                   this.setState({customerForm: false}); //need error handling
           }}>Submit</span>

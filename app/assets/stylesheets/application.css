@@ -19,6 +19,11 @@
   font-family: 'Yantramanav', sans-serif;
 }
 
+textarea {
+  outline: none;
+  border: none;
+}
+
 .clickable:hover {
   cursor: pointer;
 }
