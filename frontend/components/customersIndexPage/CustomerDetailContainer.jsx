@@ -14,7 +14,6 @@ const mapDispatchToProps = dispatch => ({
   CreateCertificate: certificate => dispatch(createCertificate(certificate))
 });
 
-//POTENTIAL BUGS: certificates overflow
 class CustomerDetail extends React.Component {
   constructor(props) {
     super(props);
@@ -81,12 +80,12 @@ class CustomerDetail extends React.Component {
             </p>
           </div> : null }
 
-          { activated ? <div style={{textAlign: 'center', width: 85, marginLeft: 7.5,
+          { activated ? <div style={{textAlign: 'center', width: 85, marginLeft: 6.25,
                                      marginBottom: 2.5, backgroundColor: 'lightgreen',
                                      borderRadius: 10, paddingLeft: 5, paddingRight: 5}}
                              onClick={() => this.setState({activated: !activated})}>
               <span style={{fontSize: 14, fontWeight: 500}} className='clickable'>Reactivate<br/>a Certificate</span>
-          </div> : <div style={{textAlign: 'center', width: 85, marginLeft: 7.5,
+          </div> : <div style={{textAlign: 'center', width: 85, marginLeft: 6.25,
                                 marginBottom: 2.5, backgroundColor: 'salmon',
                                 borderRadius: 10, paddingLeft: 5, paddingRight: 5}}
                         onClick={() => this.setState({activated: !activated})}>

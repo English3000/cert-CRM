@@ -18,10 +18,10 @@ class Certificate extends React.Component {
 
     return (<div style={{margin: 7.5, marginLeft: 15}}>
       { update ? <div style={{display: 'flex', textAlign: 'center'}} onClick={() => this.setState({update: false})}>
-        { certificate['active?'] ? <div onClick={() => UpdateCertificate({id: certificate.id, 'active?': !certificate['active?']})}
+        { certificate['active?'] ? <div onClick={() => UpdateCertificate({id: certificate.id, 'active?': false})}
              style={{backgroundColor: 'salmon', borderTopLeftRadius: 3, width: '50%'}}
              className='clickable'>Confirm
-        </div> : <div onClick={() => UpdateCertificate({id: certificate.id, 'active?': !certificate['active?']})}
+        </div> : <div onClick={() => UpdateCertificate({id: certificate.id, 'active?': true})}
              style={{backgroundColor: 'lightgreen', borderTopLeftRadius: 3, width: '50%'}}
              className='clickable'>Confirm
         </div> }

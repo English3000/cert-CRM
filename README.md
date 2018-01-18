@@ -1,7 +1,6 @@
 # Cert-CRM: _a generic CRM for managing customer's certificates_
 
-### CURRENTLY IN DEVELOPMENT
-_[live demo](http://cert-crm.herokuapp.com/#/)_
+### [live demo](http://cert-crm.herokuapp.com/#/)
 
 **STACK:** React, Rails, Postgres
 
@@ -21,7 +20,7 @@ _[live demo](http://cert-crm.herokuapp.com/#/)_
 2. Customer search **(COMPLETE)**
 3. Customer creation & deletion **(COMPLETE w/ re-rendering bug)**
 4. Certificate creation & updating **(COMPLETE w/ re-rendering bug)**
-5. Production deployment
+5. Production deployment **(COMPLETE)**
 
 ## Assumptions
 
@@ -114,6 +113,6 @@ attribute         | datatype | settings
 
 0. documentation **(COMPLETE)**
 1. backend **(COMPLETE)**
-2. frontend  **(COMPLETE)**
-3. production deployment & troubleshooting
+2. frontend **(COMPLETE)**
+3. production deployment **(COMPLETE)** & troubleshooting
 4. tests _(at this stage, there's a working product--the tests ensure another developer doesn't accidentally break existing functionality)_

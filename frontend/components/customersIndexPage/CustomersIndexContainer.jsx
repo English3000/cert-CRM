@@ -15,7 +15,6 @@ const mapDispatchToProps = dispatch => ({
   CreateCustomer: customer => dispatch(createCustomer(customer))
 });
 
-//display customer form errors somewhere
 class CustomersIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -26,9 +25,11 @@ class CustomersIndex extends React.Component {
   componentWillMount() { this.props.fetchCustomers(); }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.customers.all_ids.length !== newProps.customers.all_ids) {
+    console.log(this.props.customers.all_ids.length !== newProps.customers.all_ids.length);
+    if (this.props.customers.all_ids.length !== newProps.customers.all_ids.length) {
       this.setState({all_ids: newProps.customers.all_ids});
     }
+    console.log(newProps); //rerenders only once
   }
 
   render() {
