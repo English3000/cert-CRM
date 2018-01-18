@@ -15,6 +15,9 @@ class Api::CertificatesController < ApplicationController
     if @cert.save
       @cert.user.updated_at = @cert.updated_at
       @cert.user.save
+      #because :updated_at isn't passed to frontend, won't update dynamically--
+        #which is good from a UI standpoint--but whenever you sign in again,
+        #customer list will be in updated order (b/c a new fetch request is made upon sign-in)
       render :certificate
     else
       render json: @cert.errors.full_messages, status: 422
