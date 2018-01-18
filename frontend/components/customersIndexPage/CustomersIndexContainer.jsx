@@ -20,7 +20,7 @@ class CustomersIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = { all_ids: this.props.customers.all_ids, customerForm: false,
-                   name: '', email: '', password: '' };
+                   name: '', email: '', password: '', errors: false };
   }
 
   componentWillMount() { this.props.fetchCustomers(); }
@@ -32,7 +32,7 @@ class CustomersIndex extends React.Component {
   }
 
   render() {
-    const { all_ids, customerForm, name, email, password } = this.state;
+    const { all_ids, customerForm, name, email, password, errors } = this.state;
     const { customers, CreateCustomer, certificates, pageLoading } = this.props;
 
     return (<div>
@@ -52,6 +52,7 @@ class CustomersIndex extends React.Component {
         <p style={{marginBottom: 7.5, textAlign: 'center', fontWeight: 500}}>
           Add Customer
         </p>
+
         <div style={{backgroundColor: 'goldenrod', padding: 15,
                      display: 'flex', justifyContent: 'center', alignItems: 'center',
                      width: 400, margin: '0 auto'}}>
@@ -61,12 +62,19 @@ class CustomersIndex extends React.Component {
                  onChange={event => this.setState({email: event.target.value})}/>
           <input type='text' placeholder='Password' style={{marginRight: 7.5}}
                  onChange={event => this.setState({password: event.target.value})}/>
-          <span style={{backgroundColor: 'white', fontSize: 14}}
-                className='clickable button' onClick={() => {
-                  CreateCustomer({name, email, password, 'admin?': false});
-                  this.setState({customerForm: false}); //need error handling
-          }}>Submit</span>
+          <span style={{backgroundColor: 'white', fontSize: 14}} className='clickable button'
+                onClick={() => CreateCustomer({name, email, password, 'admin?': false})
+                  .then( () => this.setState({customerForm: false}),
+                         err => this.setState({errors: err}) )}>
+            Submit
+          </span>
         </div>
+
+        <p style={{textAlign: 'center', fontStyle: 'italic', marginTop: 10}}>
+          { errors ? errors.map(
+            err => <span key={`${err}`}>{`${err}. `}</span>
+          ) : null }
+        </p>
       </div> : null }
 
       <main style={{margin: '0 auto', maxWidth: 900, marginTop: 15}}>

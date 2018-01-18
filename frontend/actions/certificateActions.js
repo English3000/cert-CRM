@@ -18,8 +18,12 @@ export const patchCertificate = certificate => ({
 // );
 export const createCertificate = certificate => dispatch => (
   Api.createCertificate(certificate)
-    .then( newCertificate => dispatch(receiveCertificate(newCertificate)),
-           err => dispatch(receiveErrors(err.responseJSON)) )
+    .then(newCertificate => dispatch(receiveCertificate(newCertificate)),
+          err => {
+            dispatch(receiveErrors(err.responseJSON));
+            console.log(err);
+            return err.responseJSON;
+          })
 );
 export const updateCertificate = certificate => async (dispatch) => dispatch(
   patchCertificate( await Api.updateCertificate(certificate) )

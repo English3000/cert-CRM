@@ -74,10 +74,11 @@ class CustomerDetail extends React.Component {
                       placeholder='Certificate Body' value={certBody} autoFocus>
             </textarea>
             <p style={{backgroundColor: 'white', textAlign: 'center', marginTop: -6}}
-                  onClick={() => {
-              CreateCertificate({body: certBody, user_id: customer.id});
-              this.setState({certForm: false}); //need error handling
-            }} className='clickable'>Submit</p>
+                  onClick={() => CreateCertificate({body: certBody, user_id: customer.id})
+                    .then( () => this.setState({certForm: false}),
+                           err => this.setState({certBody: err}) )} className='clickable'>
+              Submit
+            </p>
           </div> : null }
 
           { activated ? <div style={{textAlign: 'center', width: 85, marginLeft: 7.5,

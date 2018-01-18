@@ -43,7 +43,7 @@ class HomePage extends React.Component {
               </span>
           </div> : <div>&emsp;</div>}
           <p style={{fontSize: 12, marginLeft: 7.5, marginTop: 2.5}}>{errors.length > 0 ? errors.map(
-            err => (<span key={`${err}`} style={{color: 'white'}}>{`${err}. `}</span>)
+            err => <span key={`${err}`} style={{color: 'white'}}>{`${err}. `}</span>
           ) : <span key='no-errors'>&emsp;</span>}</p>
         </div>
       </footer>

@@ -27,8 +27,11 @@ export const fetchCustomers = () => async (dispatch) => {
 };
 export const createCustomer = customer => dispatch => (
   Api.createCustomer(customer)
-    .then( newCustomer => dispatch(receiveCustomer(newCustomer)),
-           err => dispatch(receiveErrors(err.responseJSON)) )
+    .then(newCustomer => dispatch(receiveCustomer(newCustomer)),
+          err => {
+            dispatch(receiveErrors(err.responseJSON));
+            return err.responseJSON;
+          })
 );
 export const deleteCustomer = id => async (dispatch) => dispatch(
   removeCustomer( await Api.deleteCustomer(id) )
