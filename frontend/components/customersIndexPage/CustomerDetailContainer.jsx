@@ -74,7 +74,7 @@ class CustomerDetail extends React.Component {
             </textarea>
             <p style={{backgroundColor: 'white', textAlign: 'center', marginTop: -6}}
                onClick={() => CreateCertificate({body: certBody, user_id: customer.id})
-                 .then( () => this.setState({certForm: false}),
+                 .then( () => this.setState({certForm: false, certBody: ''}),
                         err => this.setState({certBody: err}) )} className='clickable'>
               Submit
             </p>
