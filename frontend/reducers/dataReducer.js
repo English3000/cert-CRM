@@ -13,7 +13,7 @@ const _defaultState = {
 
 export default (state = _defaultState, action) => {
   Object.freeze(state);
-  let newState = merge(_defaultState, state);
+  let newState = merge({}, _defaultState, state);
 
   switch (action.type) {
     case RECEIVE_CUSTOMERS:
@@ -28,6 +28,7 @@ export default (state = _defaultState, action) => {
       return newState;
     case RECEIVE_CERTIFICATE:
     case UPDATE_CERTIFICATE:
+      console.log("Reducer", action.certificate);
       newState.certificates[action.certificate.id] = action.certificate;
       return newState;
     default:

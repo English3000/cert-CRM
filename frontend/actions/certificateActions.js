@@ -21,7 +21,6 @@ export const createCertificate = certificate => dispatch => (
     .then(newCertificate => dispatch(receiveCertificate(newCertificate)),
           err => {
             dispatch(receiveErrors(err.responseJSON));
-            console.log(err);
             return err.responseJSON;
           })
 );

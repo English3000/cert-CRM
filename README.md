@@ -18,8 +18,8 @@
 
 1. Admin sign in & out **(COMPLETE)**
 2. Customer search **(COMPLETE)**
-3. Customer creation & deletion **(COMPLETE w/ re-rendering bug)**
-4. Certificate creation & updating **(COMPLETE w/ re-rendering bug)**
+3. Customer creation & deletion **(COMPLETE)**
+4. Certificate creation & updating **(COMPLETE; creation re-rendering bug)**
 5. Production deployment **(COMPLETE)**
 
 ## Assumptions
