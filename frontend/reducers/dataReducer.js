@@ -27,6 +27,9 @@ export default (state = _defaultState, action) => {
       newState.customers.all_ids.splice(newState.customers.all_ids.indexOf(action.customerId), 1);
       return newState;
     case RECEIVE_CERTIFICATE:
+      newState.certificates[action.certificate.id] = action.certificate;
+      newState.customers.by_id[action.certificate.user_id].certificate_ids.unshift(action.certificate.id);
+      return newState;
     case UPDATE_CERTIFICATE:
       // console.log("Reducer", action.certificate);
       newState.certificates[action.certificate.id] = action.certificate;
