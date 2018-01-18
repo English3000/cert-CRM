@@ -12,7 +12,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class CustomersIndexPage extends React.Component {
-  render() { //bug: page only dynamically re-renders once
+  render() {
     const {currentUser, SignOut} = this.props;
 
     return (<div style={{backgroundColor: 'beige', paddingTop: 15, height: '100%', minHeight: 812.5}}>

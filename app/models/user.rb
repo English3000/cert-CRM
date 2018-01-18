@@ -2,6 +2,7 @@ class User < ApplicationRecord
   validates :email, :session_token, presence: true, uniqueness: true
   validates :name, :password_digest, presence: true
   validates :admin?, inclusion: [true, false]
+  validates_format_of :email, with: /[a-zA-Z]\w*@\w+\.\w{2,}/
   validates :password, length: {minimum: 8, allow_nil: true}
 
   has_many :certificates, dependent: :destroy
