@@ -21,9 +21,9 @@ class CustomerDetail extends React.Component {
                    certForm: false, certBody: '', confirmDelete: false, newProps: false };
   }
 
-  componentWillReceiveProps(newProps) {
-    console.log("Customer Detail", newProps);
-  }
+  // componentWillReceiveProps(newProps) {
+  //   console.log("Customer Detail", newProps);
+  // }
 
   render() {
     const { customer, DeleteCustomer,

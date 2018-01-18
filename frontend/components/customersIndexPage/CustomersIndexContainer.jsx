@@ -28,7 +28,7 @@ class CustomersIndex extends React.Component {
     if (this.props.customers.all_ids.length !== newProps.customers.all_ids.length) {
       this.setState({all_ids: newProps.customers.all_ids});
     }
-    console.log(newProps); //re-renders only once
+    // console.log(newProps); //re-renders only once
   }
 
   render() {

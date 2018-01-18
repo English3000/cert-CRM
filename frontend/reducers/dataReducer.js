@@ -28,7 +28,7 @@ export default (state = _defaultState, action) => {
       return newState;
     case RECEIVE_CERTIFICATE:
     case UPDATE_CERTIFICATE:
-      console.log("Reducer", action.certificate);
+      // console.log("Reducer", action.certificate);
       newState.certificates[action.certificate.id] = action.certificate;
       return newState;
     default:
