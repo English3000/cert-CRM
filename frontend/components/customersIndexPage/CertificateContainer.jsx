@@ -19,7 +19,7 @@ class Certificate extends React.Component {
     return (<div style={{margin: 7.5, marginLeft: 15}}>
       { update ? <div style={{display: 'flex', textAlign: 'center'}} onClick={() => this.setState({update: false})}>
         { certificate['active?'] ? <div onClick={() => UpdateCertificate({id: certificate.id, 'active?': !certificate['active?']})}
-             style={{backgroundColor: 'red', borderTopLeftRadius: 3, width: '50%'}}
+             style={{backgroundColor: 'salmon', borderTopLeftRadius: 3, width: '50%'}}
              className='clickable'>Confirm
         </div> : <div onClick={() => UpdateCertificate({id: certificate.id, 'active?': !certificate['active?']})}
              style={{backgroundColor: 'lightgreen', borderTopLeftRadius: 3, width: '50%'}}
@@ -30,7 +30,7 @@ class Certificate extends React.Component {
         </div>
       </div> : certificate['active?'] ?
       <div style={{textTransform: 'uppercase', textAlign: 'center', fontWeight: 500,
-                   backgroundColor: 'red', borderTopLeftRadius: 3, borderTopRightRadius: 3}}
+                   backgroundColor: 'salmon', borderTopLeftRadius: 3, borderTopRightRadius: 3}}
            onClick={() => this.setState({update: true})} className='clickable'>
         Deactivate
       </div> : <div style={{textTransform: 'uppercase', textAlign: 'center',

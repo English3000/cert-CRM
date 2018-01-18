@@ -40,7 +40,7 @@ class CustomerDetail extends React.Component {
 
         { confirmDelete ? <div style={{position: 'absolute', marginLeft: -85}}
                                onClick={() => this.setState({confirmDelete: false})}>
-          <p style={{backgroundColor: 'red', padding: 5}} className='clickable'
+          <p style={{backgroundColor: 'salmon', padding: 5}} className='clickable'
              onClick={() => DeleteCustomer(customer.id)}>Confirm</p>
           <p style={{backgroundColor: 'goldenrod', padding: 5, textAlign: 'center'}} className='clickable'>
             Cancel
@@ -86,7 +86,7 @@ class CustomerDetail extends React.Component {
                              onClick={() => this.setState({activated: !activated})}>
               <span style={{fontSize: 14, fontWeight: 500}} className='clickable'>Reactivate<br/>a Certificate</span>
           </div> : <div style={{textAlign: 'center', width: 85, marginLeft: 7.5,
-                                marginBottom: 2.5, backgroundColor: 'red',
+                                marginBottom: 2.5, backgroundColor: 'salmon',
                                 borderRadius: 10, paddingLeft: 5, paddingRight: 5}}
                         onClick={() => this.setState({activated: !activated})}>
             <span style={{fontSize: 14, fontWeight: 500}} className='clickable'>View Active<br/>Certificates</span>
