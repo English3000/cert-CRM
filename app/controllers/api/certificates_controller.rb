@@ -14,6 +14,7 @@ class Api::CertificatesController < ApplicationController
     @cert = Certificate.new(cert_params)
     if @cert.save
       @cert.user.updated_at = @cert.updated_at
+      @cert.user.save
       render :certificate
     else
       render json: @cert.errors.full_messages, status: 422

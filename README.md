@@ -19,7 +19,7 @@
 1. Admin sign in & out **(COMPLETE)**
 2. Customer search **(COMPLETE)**
 3. Customer creation & deletion **(COMPLETE)**
-4. Certificate creation & updating **(COMPLETE; creation re-rendering bug)**
+4. Certificate creation & updating **(COMPLETE)**
 5. Production deployment **(COMPLETE)**
 
 ## Assumptions
@@ -97,12 +97,14 @@ attribute         | datatype | settings
       1: {
         id: 1, //needed for RESTful updates
         body: '...',
-        active?: true
+        active?: true,
+        user_id: 1 //needed for updating customers slice of reducer upon certificate creation
       },
       2: {
         id: 2,
         body: '...',
-        active?: false
+        active?: false,
+        user_id: 1
       }
     }
   }
@@ -114,5 +116,5 @@ attribute         | datatype | settings
 0. documentation **(COMPLETE)**
 1. backend **(COMPLETE)**
 2. frontend **(COMPLETE)**
-3. production deployment **(COMPLETE)** & troubleshooting
+3. production deployment & troubleshooting **(COMPLETE)**
 4. tests _(at this stage, there's a working product--the tests ensure another developer doesn't accidentally break existing functionality)_
