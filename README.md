@@ -22,6 +22,9 @@
 4. Certificate creation & updating **(COMPLETE)**
 5. Production deployment **(COMPLETE)**
 
++ Certificates lists dynamically update order by most recently updated
++ Customers list order updates whenever admin signs in again _(better from a UI standpoint)_
+
 ## Assumptions
 
 _**A.** This is the administrator-side of the software, not the customer-side._
