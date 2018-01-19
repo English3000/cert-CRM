@@ -13,11 +13,11 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-# require 'capybara'
-# require 'capybara-webkit'
-#
-# Capybara.javascript_driver = :webkit
-# Capybara.server_port = 3001
+require 'capybara'
+require 'capybara-webkit'
+
+Capybara.javascript_driver = :webkit
+Capybara.server_port = 3001
 
 # Capybara::Webkit.configure do |config|
 #   # Enable debug mode. Prints a log of everything the driver is doing.

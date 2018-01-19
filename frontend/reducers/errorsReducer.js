@@ -6,6 +6,6 @@ export default (state = [], action) => {
     case RECEIVE_ERRORS:
       return action.errors;
     default:
-      return state; //or, []
+      return [];
   }
 };
