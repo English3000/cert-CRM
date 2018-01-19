@@ -18,7 +18,7 @@ class CustomersIndexPage extends React.Component {
     return (<div style={{backgroundColor: 'beige', paddingTop: 15, height: '100%', minHeight: 812.5}}>
       <div style={{position: 'absolute', right: 22.5, zIndex: 2, display: 'flex', alignItems: 'center'}}>
         <span style={{paddingRight: 10, fontWeight: 500}}>{currentUser.name}</span>
-        <div onClick={SignOut}><i className='fa fa-sign-out-alt fa-lg clickable'></i></div>
+        <button onClick={SignOut}><i className='fa fa-sign-out-alt fa-lg clickable'></i></button>
       </div>
       <CustomersIndexContainer/>
     </div>);

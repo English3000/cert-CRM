@@ -32,18 +32,18 @@ export class CustomerDetail extends React.Component {
 
     return (<section style={{backgroundColor: 'goldenrod', boxSizing: 'border-box', marginBottom: 15, padding: 7.5, display: 'flex', height: 222}}>
       <aside style={{display: 'flex'}}>
-        <div onClick={() => this.setState({confirmDelete: true})}>
-          <i className='fa fa-trash fa-lg clickable'
-             style={{color: 'beige', display: 'inline-block'}}></i>
-        </div>
+        <button style={{color: 'beige', height: 21}}
+                onClick={() => this.setState({confirmDelete: true})}>
+          <i className='fa fa-trash fa-lg clickable'></i>
+        </button>
 
         { confirmDelete ? <div style={{position: 'absolute', marginLeft: -85}}
                                onClick={() => this.setState({confirmDelete: false})}>
-          <p style={{backgroundColor: 'salmon', padding: 5}} className='clickable'
-             onClick={() => DeleteCustomer(customer.id)}>Confirm</p>
-          <p style={{backgroundColor: 'goldenrod', padding: 5, textAlign: 'center'}} className='clickable'>
+          <button style={{backgroundColor: 'salmon', padding: 5, display: 'block'}} className='clickable'
+             onClick={() => DeleteCustomer(customer.id)}>Confirm</button>
+          <button style={{backgroundColor: 'goldenrod', width: 51.61, padding: 5, display: 'block', textAlign: 'center'}} className='clickable'>
             Cancel
-          </p>
+          </button>
         </div> : null }
 
         <div style={{marginLeft: 7.5}}>
@@ -53,43 +53,43 @@ export class CustomerDetail extends React.Component {
           <div style={{display: 'flex', alignItems: 'center', marginTop: 10, marginBottom: 12.5}}>
             <input type='text' placeholder='Private key' style={{display: 'inline-block'}}
                    onChange={event => this.setState({privateKey: event.target.value})}/>
-            <span style={{marginLeft: 7.5, backgroundColor: 'white', fontSize: 14, fontWeight: 500}}
+            <button style={{marginLeft: 7.5, backgroundColor: 'white', fontSize: 14, fontWeight: 500}}
                   className='clickable button' onClick={() => alert("Functionality not included.")/*FetchCertificate({privateKey})*/}>
               Validate
-            </span>
+            </button>
           </div>
 
           <p style={{marginBottom: 12.5}}>
-            <span style={{backgroundColor: 'yellow', fontSize: 14, fontWeight: 500,
+            <button style={{backgroundColor: 'yellow', fontSize: 14, fontWeight: 500,
                           borderRadius: 3, paddingTop: 2.5, paddingBottom: 2.5}}
                onClick={() => this.setState({certForm: true})} className='clickable button'>
               Create Certificate
-            </span>
+            </button>
           </p>
 
           { certForm ? <div style={{position: 'absolute', marginLeft: -170, marginTop: -37.5, boxShadow: '0 0 1px lightgray'}}>
-            <textarea style={{height: 85, width: 110, resize: 'none', backgroundColor: 'yellow', padding: 5, fontSize: 15}}
+            <textarea style={{height: 85, width: 110, resize: 'none', backgroundColor: 'yellow', padding: 5, fontSize: 15, display: 'block'}}
                       onChange={event => this.setState({certBody: event.target.value})}
                       placeholder='Certificate Body' value={certBody} autoFocus>
             </textarea>
-            <p style={{backgroundColor: 'white', textAlign: 'center', marginTop: -6}}
+            <button style={{backgroundColor: 'white', width: 120, textAlign: 'center', marginTop: -6}}
                onClick={() => CreateCertificate({body: certBody, user_id: customer.id})
                  .then( () => this.setState({certForm: false, certBody: ''}),
                         err => this.setState({certBody: err}) )} className='clickable'>
               Submit
-            </p>
+            </button>
           </div> : null }
 
           { activated ? <div style={{textAlign: 'center', width: 85, marginLeft: 6.25,
                                      marginBottom: 2.5, backgroundColor: 'lightgreen',
                                      borderRadius: 10, paddingLeft: 5, paddingRight: 5}}
                              onClick={() => this.setState({activated: !activated})}>
-              <span style={{fontSize: 14, fontWeight: 500}} className='clickable'>Reactivate<br/>a Certificate</span>
+              <button style={{fontSize: 14, fontWeight: 500}} className='clickable'>Reactivate<br/>a Certificate</button>
           </div> : <div style={{textAlign: 'center', width: 85, marginLeft: 6.25,
                                 marginBottom: 2.5, backgroundColor: 'salmon',
                                 borderRadius: 10, paddingLeft: 5, paddingRight: 5}}
                         onClick={() => this.setState({activated: !activated})}>
-            <span style={{fontSize: 14, fontWeight: 500}} className='clickable'>View Active<br/>Certificates</span>
+            <button style={{fontSize: 14, fontWeight: 500}} className='clickable'>View Active<br/>Certificates</button>
           </div> }
         </div>
       </aside>

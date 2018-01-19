@@ -27,8 +27,8 @@ class HomePage extends React.Component {
       <footer style={{position: 'fixed', bottom: 0, zIndex: 2, width: '100%',
                       backgroundColor: 'black', color: 'white', display: 'flex',
                       padding: 7.5}}>
-        <span className='clickable'
-              onClick={() => this.setState({form: !form})}>Admin</span>
+        <button className='clickable' style={{height: 22.5}}
+                onClick={() => this.setState({form: !form})}>Admin</button>
         <div>
           {form ? <div style={{display: 'flex'}}>
               <input type='text' placeholder='Email' autoFocus
@@ -37,14 +37,14 @@ class HomePage extends React.Component {
               <input type='password' placeholder='Password'
                      defaultValue={password} style={{marginLeft: 7.5}}
                      onChange={event => this.setState({password: event.target.value})}/>
-              <span className='clickable button' onClick={() => SignIn({email, password})}
+              <button className='clickable button' onClick={() => SignIn({email, password})}
                     style={{marginLeft: 7.5, backgroundColor: 'white', color: 'black'}}>
                 Sign In
-              </span>
+              </button>
           </div> : <div>&emsp;</div>}
           <p style={{fontSize: 12, marginLeft: 7.5, marginTop: 2.5}}>{errors.length > 0 ? errors.map(
             err => <span key={`${err}`} style={{color: 'white'}}>{`${err}. `}</span>
-          ) : <span key='no-errors'>&emsp;</span>}</p>
+          ) : <span key='no-errors' style={{color: 'black'}}>&emsp;</span>}</p>
         </div>
       </footer>
     </div>);

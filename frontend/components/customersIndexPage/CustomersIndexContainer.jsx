@@ -38,9 +38,9 @@ export class CustomersIndex extends React.Component {
 
     return (<div>
       <div style={{display: 'flex', alignItems: 'center', justifyContent:'center', marginBottom: 15}}>
-        <div onClick={() => this.setState({customerForm: true})}>
+        <button onClick={() => this.setState({customerForm: true})}>
           <i className='fa fa-user-plus fa-lg clickable' style={{marginRight: 7.5}}></i>
-        </div>
+        </button>
         <input style={{width: 150, padding: 3, paddingLeft: 4.5, fontSize: 14}} placeholder='Search for customers' onChange={event => {
           let ids_array = customers.all_ids.filter(
             id => customers.by_id[id].name.toLowerCase().includes(event.target.value.toLowerCase())
@@ -63,12 +63,12 @@ export class CustomersIndex extends React.Component {
                    onChange={event => this.setState({email: event.target.value})}/>
             <input type='text' placeholder='Password' style={{marginRight: 7.5}}
                    onChange={event => this.setState({password: event.target.value})}/>
-            <span style={{backgroundColor: 'white', fontSize: 14}} className='clickable button'
+            <button style={{backgroundColor: 'white', fontSize: 14}} className='clickable button'
                   onClick={() => CreateCustomer({name, email, password, 'admin?': false})
                     .then( () => this.setState({customerForm: false}),
                            err => this.setState({errors: err}) )}>
               Submit
-            </span>
+            </button>
           </div>
         </div>
 
