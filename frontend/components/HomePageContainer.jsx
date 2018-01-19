@@ -22,7 +22,7 @@ class HomePage extends React.Component {
 
     return (<div id='home-page'>
       <main style={{display: 'flex', flex: 1, justifyContent: 'center', alignItems: 'center', height: 700}}>
-        <p style={{fontSize: 50}}>Company Page</p>
+        <p style={{fontSize: 50}}>Your Company Page</p>
       </main>
       <footer style={{position: 'fixed', bottom: 0, zIndex: 2, width: '100%',
                       backgroundColor: 'black', color: 'white', display: 'flex',
