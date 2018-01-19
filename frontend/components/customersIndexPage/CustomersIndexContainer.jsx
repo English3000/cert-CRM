@@ -43,7 +43,7 @@ export class CustomersIndex extends React.Component {
         </div>
         <input style={{width: 150, padding: 3, paddingLeft: 4.5, fontSize: 14}} placeholder='Search for customers' onChange={event => {
           let ids_array = customers.all_ids.filter(
-            id => customers.by_id[id].name.includes(event.target.value)
+            id => customers.by_id[id].name.toLowerCase().includes(event.target.value.toLowerCase())
           );
           this.setState({all_ids: ids_array});
         }}/>
