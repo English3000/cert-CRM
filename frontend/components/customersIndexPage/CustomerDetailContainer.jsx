@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => ({
   CreateCertificate: certificate => dispatch(createCertificate(certificate))
 });
 
-class CustomerDetail extends React.Component {
+export class CustomerDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = { privateKey: '', activated: true, expandCert: false,

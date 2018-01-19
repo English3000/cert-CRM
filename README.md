@@ -2,7 +2,7 @@
 
 ### [live demo](http://cert-crm.herokuapp.com/#/)
 
-**STACK:** React, Rails, Postgres
+**STACK:** React/Redux & Jest, Rails & RSpec, Postgres
 
 ## Updates
 
@@ -30,6 +30,8 @@
 _**A.** This is the administrator-side of the software, not the customer-side._
 
 _**B.** Admin accounts are created by a webmaster. Thus, admin account_ creation _is out of scope; only admin sign-in functionality is included._
+
+_**C.** Tests are only provided for specifically requested functionality._
 
 ## Component Hierarchy
 
@@ -120,4 +122,4 @@ attribute         | datatype | settings
 1. backend **(COMPLETE)**
 2. frontend **(COMPLETE)**
 3. production deployment & troubleshooting **(COMPLETE)**
-4. tests _(at this stage, there's a working product--the tests ensure another developer doesn't accidentally break existing functionality)_
+4. tests _(at this stage, there's a working product--the tests ensure another developer doesn't accidentally break existing functionality)_ **(IN PROGRESS)**

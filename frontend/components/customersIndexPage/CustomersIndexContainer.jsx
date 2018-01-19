@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => ({
   CreateCustomer: customer => dispatch(createCustomer(customer))
 });
 
-class CustomersIndex extends React.Component {
+export class CustomersIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = { all_ids: this.props.customers.all_ids, customerForm: false,
