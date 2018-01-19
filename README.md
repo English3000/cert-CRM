@@ -4,7 +4,7 @@
 
 **STACK:** React/Redux & Jest, Rails & RSpec, Postgres
 
-_Testing Locally:_ Run `bundle install` & `npm install`. Run `npm test`. 
+_Testing Locally:_ Run `bundle install` (backend testing) & `npm install` (frontend testing). Run `bundle exec rspec` & `npm test`. 
 
 ## Updates
 
