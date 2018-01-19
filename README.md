@@ -4,6 +4,8 @@
 
 **STACK:** React/Redux & Jest, Rails & RSpec, Postgres
 
+_Testing Locally:_ Run `bundle install` & `npm install`. Run `npm test`. 
+
 ## Updates
 
 * POTENTIAL EXTRA FUNCTIONALITY: Expandable certificates on click, for enhanced readability. _(No need for short- to medium-sized certificates.)_

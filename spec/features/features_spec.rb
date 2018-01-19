@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-# feature '' do
-# 
-# end
+feature 'add customer' do
+  visit api_customers_url
+end
