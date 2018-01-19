@@ -1,7 +1,6 @@
-import { sampleState1 } from '../../utils/dataReducer-helper';
+import { sampleState1, customer2,
+         certificate1_0, certificate2 } from '../../utils/dataReducer-helper';
 import dataReducer, {_defaultState} from '../dataReducer';
-import * as CustomerActions from '../../actions/customerActions';
-import * as CertificateActions from '../../actions/certificateActions';
 
 describe('dataReducer', () => {
   test('initializes with a certificates & a customers slice', () => {
@@ -40,8 +39,7 @@ describe('dataReducer', () => {
     describe('RECEIVE_CUSTOMER', () => {
       test('adds customer to new state', () => {
         type = 'RECEIVE_CUSTOMER';
-        data = {id: 2, name: 'New Customer', email: 'br@nd.new', certificate_ids: []};
-        action = {type, customer: data};
+        action = {type, customer: customer2};
 
         oldState = _defaultState;
         newState = dataReducer(oldState, action);
@@ -69,12 +67,11 @@ describe('dataReducer', () => {
                      oldState.customers.by_id[action.customerId].certificate_ids.length);
       });
     });
-    //
+
     describe('RECEIVE_CERTIFICATE', () => {
       beforeEach(() => {
         type = 'RECEIVE_CERTIFICATE';
-        data = {id: 2, body: 'Basic', 'active?': true, user_id: 1};
-        action = {type, certificate: data};
+        action = {type, certificate: certificate2};
 
         oldState = sampleState1;
         newState = dataReducer(oldState, action);
@@ -93,8 +90,7 @@ describe('dataReducer', () => {
     describe('UPDATE_CERTIFICATE', () => {
       test("updates certificate's active status", () => {
         type = 'UPDATE_CERTIFICATE';
-        data = {id: 1, body: 'Basic', 'active?': false, user_id: 1};
-        action = {type, certificate: data};
+        action = {type, certificate: certificate1_0};
 
         oldState = sampleState1;
         newState = dataReducer(oldState, action);
