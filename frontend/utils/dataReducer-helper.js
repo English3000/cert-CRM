@@ -4,6 +4,11 @@ export const sampleState1 = {
       id: 1,
       body: 'Basic',
       'active?': true
+    },
+    3: {
+      id: 3,
+      body: 'Gold',
+      'active?': false
     }
   },
   customers: {
@@ -13,7 +18,7 @@ export const sampleState1 = {
         id: 1,
         name: 'Customer',
         email: 'cust@mer.com',
-        certificate_ids: [1]
+        certificate_ids: [1, 3]
       }
     }
   }
