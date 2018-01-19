@@ -3,7 +3,7 @@ import { RECEIVE_CUSTOMERS, RECEIVE_CUSTOMER,
 import { RECEIVE_CERTIFICATE, UPDATE_CERTIFICATE } from '../actions/certificateActions';
 import merge from 'lodash/merge';
 
-const _defaultState = {
+export const _defaultState = {
   customers: {
     all_ids: [],
     by_id: {}
@@ -23,6 +23,8 @@ export default (state = _defaultState, action) => {
       newState.customers.all_ids.unshift(action.customer.id);
       return newState;
     case REMOVE_CUSTOMER:
+      const customerCerts = newState.customers.by_id[action.customerId].certificate_ids;
+      customerCerts.forEach(certId => delete newState.certificates[certId]);
       delete newState.customers.by_id[action.customerId];
       newState.customers.all_ids.splice(newState.customers.all_ids.indexOf(action.customerId), 1);
       return newState;
