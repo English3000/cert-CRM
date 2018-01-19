@@ -32,9 +32,9 @@ describe('CustomerDetail', () => {
     expect(CustomerDetailWrapper.props().certificates).toBeDefined();
   });
 
-  // it("has a customer's details", () => {
-  //   expect(CustomerDetailWrapper.props().customer).toBeDefined();
-  // });
+  it("has a customer prop", () => {
+    expect(CustomerDetailWrapper.props().customer).toBeDefined();
+  });
 
   it('allows customers to be deleted', () => {
     expect(CustomerDetailWrapper.props().DeleteCustomer).toBeDefined();
@@ -45,9 +45,9 @@ describe('CustomerDetail', () => {
   });
 
   it('renders active certificates', () => {
-    expect(
-      CustomerDetailWrapper.find('main').children().getElements().length
-    ).toBe(1);
+    const certificatesArr = CustomerDetailWrapper.find('main').children().getElements();
+
+    expect(certificatesArr.length).toBe(1);
   });
 });
 //receives certificates

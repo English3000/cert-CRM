@@ -56,7 +56,7 @@ export class CustomersIndex extends React.Component {
 
         <div style={{backgroundColor: 'goldenrod', padding: 15,
                      display: 'flex', justifyContent: 'center', alignItems: 'center',
-                     width: 400, margin: '0 auto'}}>
+                     minwidth: 400, margin: '0 auto'}}>
           <input type='text' placeholder='Name' style={{marginRight: 5}} autoFocus
                  onChange={event => this.setState({name: event.target.value})}/>
           <input type='text' placeholder='Email' style={{marginRight: 5}}

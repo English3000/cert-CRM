@@ -41,9 +41,9 @@ describe('CustomersIndex', () => {
   });
 
   it('renders customers', () => {
-    expect(
-      CustomersIndexWrapper.find('main').children().getElements().length
-    ).toBe(1);
+    const customersArr = CustomersIndexWrapper.find('main').children().getElements();
+
+    expect(customersArr.length).toBe(1);
   });
 });
 //receives customers

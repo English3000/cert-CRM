@@ -6,7 +6,7 @@ const mapDispatchToProps = dispatch => ({
   UpdateCertificate: certificate => dispatch(updateCertificate(certificate))
 });
 
-class Certificate extends React.Component {
+export class Certificate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {update: false};
@@ -42,7 +42,7 @@ class Certificate extends React.Component {
 
       { expanded ? <p style={{backgroundColor: 'yellow'}}>{certificate.body}</p> :
       <p style={{backgroundColor: 'yellow', width: 180, height: 150, boxSizing: 'border-box', padding: 5, paddingLeft: 7.5,
-                 overflowY: 'scroll'}}>{certificate.body}</p> }
+                 overflowY: 'auto'}}>{certificate.body}</p> }
 
       <p onClick={() => alert("Functionality not included.")} className='clickable'
          style={{textAlign: 'center', backgroundColor: 'white', borderBottomLeftRadius: 3, borderBottomRightRadius: 3}}>
