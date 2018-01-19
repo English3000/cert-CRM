@@ -54,21 +54,22 @@ export class CustomersIndex extends React.Component {
           Add Customer
         </p>
 
-        <div style={{backgroundColor: 'goldenrod', padding: 15,
-                     display: 'flex', justifyContent: 'center', alignItems: 'center',
-                     minwidth: 400, margin: '0 auto'}}>
-          <input type='text' placeholder='Name' style={{marginRight: 5}} autoFocus
-                 onChange={event => this.setState({name: event.target.value})}/>
-          <input type='text' placeholder='Email' style={{marginRight: 5}}
-                 onChange={event => this.setState({email: event.target.value})}/>
-          <input type='text' placeholder='Password' style={{marginRight: 7.5}}
-                 onChange={event => this.setState({password: event.target.value})}/>
-          <span style={{backgroundColor: 'white', fontSize: 14}} className='clickable button'
-                onClick={() => CreateCustomer({name, email, password, 'admin?': false})
-                  .then( () => this.setState({customerForm: false}),
-                         err => this.setState({errors: err}) )}>
-            Submit
-          </span>
+        <div style={{display: 'flex', justifyContent: 'center'}}>
+          <div style={{backgroundColor: 'goldenrod', padding: 15,
+                       display: 'inline-flex', alignItems: 'center'}}>
+            <input type='text' placeholder='Name' style={{marginRight: 5}} autoFocus
+                   onChange={event => this.setState({name: event.target.value})}/>
+            <input type='text' placeholder='Email' style={{marginRight: 5}}
+                   onChange={event => this.setState({email: event.target.value})}/>
+            <input type='text' placeholder='Password' style={{marginRight: 7.5}}
+                   onChange={event => this.setState({password: event.target.value})}/>
+            <span style={{backgroundColor: 'white', fontSize: 14}} className='clickable button'
+                  onClick={() => CreateCustomer({name, email, password, 'admin?': false})
+                    .then( () => this.setState({customerForm: false}),
+                           err => this.setState({errors: err}) )}>
+              Submit
+            </span>
+          </div>
         </div>
 
         <p style={{textAlign: 'center', fontStyle: 'italic', marginTop: 10}}>
