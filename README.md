@@ -122,4 +122,4 @@ attribute         | datatype | settings
 1. backend **(COMPLETE)**
 2. frontend **(COMPLETE)**
 3. production deployment & troubleshooting **(COMPLETE)**
-4. tests _(at this stage, there's a working product--the tests ensure another developer doesn't accidentally break existing functionality)_ **(IN PROGRESS)**
+4. tests _(at this stage, there's a working product--the tests ensure another developer doesn't accidentally break existing functionality)_ **(UNIT TESTS FOR REQUIREMENTS)**
