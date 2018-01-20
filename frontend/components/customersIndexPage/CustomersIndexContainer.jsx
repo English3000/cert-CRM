@@ -65,7 +65,7 @@ export class CustomersIndex extends React.Component {
                    onChange={event => this.setState({password: event.target.value})}/>
             <button style={{backgroundColor: 'white', fontSize: 14}} className='clickable button'
                   onClick={() => CreateCustomer({name, email, password, 'admin?': false})
-                    .then( () => this.setState({customerForm: false}),
+                    .then( () => this.setState({customerForm: false, name: '', email: '', password: '', errors: false}),
                            err => this.setState({errors: err}) )}>
               Submit
             </button>

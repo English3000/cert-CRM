@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'newrelic_rpm'
 gem 'rails_12factor'
 gem 'pry-rails'
 gem 'jquery-rails'
@@ -39,8 +40,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara'
   gem 'capybara-webkit'
-  gem 'phantomjs'
-  gem 'poltergeist'
+  # gem 'phantomjs'
+  # gem 'poltergeist'
   gem 'selenium-webdriver'
 
   gem 'rspec-rails'

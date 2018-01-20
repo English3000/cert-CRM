@@ -19,3 +19,12 @@ bundle.js.map
 /yarn-error.log
 
 .byebug_history
+
+create-certificate.gif
+create-customer.gif
+delete-customer.gif
+search-customer+reactivate-certificate.gif
+sign-in.gif
+
+HomePage.png
+CustomersIndexPage.png
