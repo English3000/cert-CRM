@@ -4,7 +4,7 @@
 
 **STACK:** React/Redux & Jest, Rails & RSpec, Postgres
 
-_Testing Locally:_ Run `bundle install` (backend testing) & `npm install` (frontend testing). Run `bundle exec rspec` & `npm test`. 
+_Testing Locally:_ Run `bundle install` (backend testing) & `npm install` (frontend testing). Run `bundle exec rspec` & `npm test`.
 
 ## Updates
 
@@ -124,4 +124,4 @@ attribute         | datatype | settings
 1. backend **(COMPLETE)**
 2. frontend **(COMPLETE)**
 3. production deployment & troubleshooting **(COMPLETE)**
-4. tests _(at this stage, there's a working product--the tests ensure another developer doesn't accidentally break existing functionality)_ **(UNIT TESTS FOR REQUIREMENTS)**
+4. tests _(at this stage, there's a working product--the tests ensure another developer doesn't accidentally break existing functionality)_ **(COMPLETE)**
