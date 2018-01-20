@@ -21,4 +21,4 @@
 
 ![delete-customer](https://github.com/English3000/cert-CRM/blob/master/delete-customer.gif)
 
-For more details, check out the [development README](https://github.com/English3000/cert-CRM/edit/master/README-dev.md).
+For more details, check out the [development README](https://github.com/English3000/cert-CRM/blob/master/README-dev.md).

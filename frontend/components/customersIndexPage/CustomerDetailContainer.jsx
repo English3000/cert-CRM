@@ -32,14 +32,14 @@ export class CustomerDetail extends React.Component {
 
     return (<section style={{backgroundColor: 'goldenrod', boxSizing: 'border-box', marginBottom: 15, padding: 7.5, display: 'flex', height: 222}}>
       <aside style={{display: 'flex'}}>
-        <button style={{color: 'beige', height: 21}}
+        <button id={`delete-${customer.email}`} style={{color: 'beige', height: 21, width: 19}}
                 onClick={() => this.setState({confirmDelete: true})}>
           <i className='fa fa-trash fa-lg clickable'></i>
         </button>
 
         { confirmDelete ? <div style={{position: 'absolute', marginLeft: -85}}
                                onClick={() => this.setState({confirmDelete: false})}>
-          <button style={{backgroundColor: 'salmon', padding: 5, display: 'block'}} className='clickable'
+          <button id={`confirm-delete-${customer.email}`} style={{backgroundColor: 'salmon', padding: 5, display: 'block'}} className='clickable'
              onClick={() => DeleteCustomer(customer.id)}>Confirm</button>
           <button style={{backgroundColor: 'goldenrod', width: 51.61, padding: 5, display: 'block', textAlign: 'center'}} className='clickable'>
             Cancel
@@ -60,7 +60,7 @@ export class CustomerDetail extends React.Component {
           </div>
 
           <p style={{marginBottom: 12.5}}>
-            <button style={{backgroundColor: 'yellow', fontSize: 14, fontWeight: 500,
+            <button id={`cert-${customer.email}`} style={{backgroundColor: 'yellow', fontSize: 14, fontWeight: 500,
                           borderRadius: 3, paddingTop: 2.5, paddingBottom: 2.5}}
                onClick={() => this.setState({certForm: true})} className='clickable button'>
               Create Certificate
@@ -68,11 +68,11 @@ export class CustomerDetail extends React.Component {
           </p>
 
           { certForm ? <div style={{position: 'absolute', marginLeft: -170, marginTop: -37.5, boxShadow: '0 0 1px lightgray'}}>
-            <textarea style={{height: 85, width: 110, resize: 'none', backgroundColor: 'yellow', padding: 5, fontSize: 15, display: 'block'}}
+            <textarea id='cert-body' style={{height: 85, width: 110, resize: 'none', backgroundColor: 'yellow', padding: 5, fontSize: 15, display: 'block'}}
                       onChange={event => this.setState({certBody: event.target.value})}
                       placeholder='Certificate Body' value={certBody} autoFocus>
             </textarea>
-            <button style={{backgroundColor: 'white', width: 120, textAlign: 'center', marginTop: -6}}
+            <button style={{backgroundColor: 'white', width: '100%', textAlign: 'center', marginTop: -6}}
                onClick={() => CreateCertificate({body: certBody, user_id: customer.id})
                  .then( () => this.setState({certForm: false, certBody: ''}),
                         err => this.setState({certBody: err}) )} className='clickable'>

@@ -38,10 +38,10 @@ export class CustomersIndex extends React.Component {
 
     return (<div>
       <div style={{display: 'flex', alignItems: 'center', justifyContent:'center', marginBottom: 15}}>
-        <button onClick={() => this.setState({customerForm: true})}>
+        <button id='add-customer' onClick={() => this.setState({customerForm: true})}>
           <i className='fa fa-user-plus fa-lg clickable' style={{marginRight: 7.5}}></i>
         </button>
-        <input style={{width: 150, padding: 3, paddingLeft: 4.5, fontSize: 14}} placeholder='Search for customers' onChange={event => {
+        <input id='search-bar' style={{width: 150, padding: 3, paddingLeft: 4.5, fontSize: 14}} placeholder='Search for customers' onChange={event => {
           let ids_array = customers.all_ids.filter(
             id => customers.by_id[id].name.toLowerCase().includes(event.target.value.toLowerCase())
           );
@@ -57,11 +57,11 @@ export class CustomersIndex extends React.Component {
         <div style={{display: 'flex', justifyContent: 'center'}}>
           <div style={{backgroundColor: 'goldenrod', padding: 15,
                        display: 'inline-flex', alignItems: 'center'}}>
-            <input type='text' placeholder='Name' style={{marginRight: 5}} autoFocus
+            <input id='name' placeholder='Name' style={{marginRight: 5}} autoFocus
                    onChange={event => this.setState({name: event.target.value})}/>
-            <input type='text' placeholder='Email' style={{marginRight: 5}}
+            <input id='email' placeholder='Email' style={{marginRight: 5}}
                    onChange={event => this.setState({email: event.target.value})}/>
-            <input type='text' placeholder='Password' style={{marginRight: 7.5}}
+            <input id='password' placeholder='Password' style={{marginRight: 7.5}}
                    onChange={event => this.setState({password: event.target.value})}/>
             <button style={{backgroundColor: 'white', fontSize: 14}} className='clickable button'
                   onClick={() => CreateCustomer({name, email, password, 'admin?': false})
