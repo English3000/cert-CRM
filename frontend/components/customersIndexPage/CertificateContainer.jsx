@@ -29,7 +29,7 @@ export class Certificate extends React.Component {
              className='clickable'>Cancel
         </button>
       </div> : certificate['active?'] ?
-      <button id='deactivate-cert' style={{textTransform: 'uppercase', textAlign: 'center', fontWeight: 500, width: '100%',
+      <button id={`deactivate-cert-${certificate.body}`} style={{textTransform: 'uppercase', textAlign: 'center', fontWeight: 500, width: '100%',
                    backgroundColor: 'salmon', borderTopLeftRadius: 3, borderTopRightRadius: 3}}
            onClick={() => this.setState({update: true})} className='clickable'>
         Deactivate
