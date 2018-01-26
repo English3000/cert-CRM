@@ -51,6 +51,8 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'launchy'
   gem 'shoulda-matchers'
+
+  gem 'letter_opener'
 end
 
 group :development do
