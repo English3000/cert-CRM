@@ -56,7 +56,7 @@ feature 'FUNCTIONALITY', js: true do
           #for some reason, Capybara doesn't send backend the certificate object, causing failed update
     #     expect(page).not_to have_content 'Basic'
     #   end
-    # end
+    end
 
     scenario '#delete' do
       expect(page).to have_content 'New Customer'
