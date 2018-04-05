@@ -39,6 +39,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara'
+  gem 'rspec_junit_formatter'
   # gem 'capybara-webkit'
   # gem 'phantomjs'
   # gem 'poltergeist'
